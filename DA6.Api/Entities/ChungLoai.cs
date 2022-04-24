@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DA6.Api.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Core.Entities
@@ -29,7 +30,10 @@ namespace DA6.Core.Entities
         /// Jacket 2 lớp, jacket 2 lớp, jacket 3 lớp, jacket 5 lớp); 
         /// vest (Vest 1 lớp,Vest 1.5 lớp,Vest 2 lớp))
         /// </summary>
-        public Guid Kieu { get; set; }
+        public string Kieu { get; set; }
         public List<Ao> Aos { get; set; }
+        public List<Quan>  Quans { get; set; }
+        public List<JacKet>  JacKets { get; set; }
+        public List<Vest>  Vests { get; set; }
     }
 }
