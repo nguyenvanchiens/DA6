@@ -1,10 +1,13 @@
-﻿namespace DA6.Api.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DA6.Api.Entities
 {
     /// <summary>
     /// Loại vải
     /// </summary>
     public class LoaiVai
     {
+        [Key]
         public Guid MaVai { get; set; }
         /// <summary>
         /// Tên vải (Bông 100%, bông 100%; TC 65-35; TC35-65; PVC Ryon Bambo)
