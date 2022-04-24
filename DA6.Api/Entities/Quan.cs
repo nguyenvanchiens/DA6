@@ -1,23 +1,22 @@
-﻿using DA6.Core.Enums;
+﻿using DA6.Core.Entities;
+using DA6.Core.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static DA6.Core.Enums.EnumsAo;
+using static DA6.Core.Enums.EnumsQuan;
 
-namespace DA6.Core.Entities
+namespace DA6.Api.Entities
 {
     /// <summary>
-    /// Áo
+    /// Quần
     /// </summary>
-    /// 
-    [Table("Ao")]
-    public class Ao : BaseClass
+    public class Quan
     {
         /// <summary>
-        /// Mã áo
+        /// Mã quần
         /// </summary>
         /// 
         [Key]
-        public Guid MaA { get; set; }
+        public Guid MaQuan { get; set; }
         /// <summary>
         /// Mã chủng loại
         /// </summary>
@@ -26,65 +25,53 @@ namespace DA6.Core.Entities
         public Guid MaCL { get; set; }
         public ChungLoai ChungLoai { get; set; }
         /// <summary>
-        /// Kiểu tay (ngắn, dài, không tay, bổ dọc, bổ ngang)
+        /// Kiểu quần (Dài; Lỡ; Sooc)
         /// </summary>
-        public KieuTay KieuTay { get; set; }
+        public KieuQuan KieuQuan { get; set; }
         /// <summary>
-        /// Kiểu cửa tay
+        /// Kiểu cạp
         /// </summary>
-        public KieuCuaTay KieuCuaTay { get; set; }
+        public KieuCap KieuCap { get; set; }
         /// <summary>
-        /// Kiểu gấu
+        /// Kiểu túi trước
         /// </summary>
-        public KieuGau KieuGau { get; set; }
+        public KieuTuiTruoc KieuTuiTruoc { get; set; }
         /// <summary>
-        /// Kiểu cổ
+        /// Kiểu túi sau
         /// </summary>
-        public KieuCo KieuCo { get; set; }
+        public KieuTuiSau KieuTuiSau { get; set; }
         /// <summary>
-        /// Kiểu túi
+        /// Kiểu tú gối
         /// </summary>
-        public KieuTui KieuTui { get; set; }
+        public KieuTuiGoi KieuTuiGoi { get; set; }
         /// <summary>
-        /// Kiểu nẹp
+        /// Kiểu cửa quần
         /// </summary>
-        public KieuNep KieuNep { get; set; }
+        public KieuCuaQuan KieuCuaQuan { get; set; }
         /// <summary>
-        /// Kiểu thân trước
+        /// Kiểu thân trước (Bổ ngang;Bổ dọc;Bổ ngang và bổ dọc)
         /// </summary>
-        public KieuThanTruoc KieuThanTruoc { get; set; }
+        public string KieuThanTruoc { get; set; }
         /// <summary>
-        /// Kiểu xẻ
+        /// Kiểu thân sau  (Bổ ngang;Bổ dọc;Bổ ngang và bổ dọc)
         /// </summary>
-        public KieuXe KieuXe { get; set; }
+        public string KieuThanSau { get; set; }
         /// <summary>
-        /// Kiểu thân sau
+        /// Đai quần
         /// </summary>
-        public KieuThanSau KieuThanSau { get; set; }
+        public string DaiQuan { get; set; }
         /// <summary>
-        /// Dài Áo
-        /// </summary>
-        public float DaiAo { get; set; }
-        /// <summary>
-        /// Dài tay
-        /// </summary>
-        public float DaiTay { get; set; }
-        /// <summary>
-        /// Vòng ngực
-        /// </summary>
-        public float VongNguc { get; set; }
-        /// <summary>
-        /// Vòng mông
+        /// Vòng mông (cm)
         /// </summary>
         public float VongMong { get; set; }
         /// <summary>
-        /// Thành phần vải 1
+        /// Vòng bụng (cm)
+        /// </summary>
+        public float VongBung { get; set; }
+        /// <summary>
+        /// Thành phần vải 
         /// </summary>
         public ThanhPhanVai ThanhPhanVai1 { get; set; }
-        /// <summary>
-        /// Trọng lượng vải 1
-        /// </summary>
-        public float TrongLuongVai1 { get; set; }
         /// <summary>
         /// Khổ vải 1
         /// </summary>
@@ -94,11 +81,7 @@ namespace DA6.Core.Entities
         /// </summary>
         public ThanhPhanVai ThanhPhanVai2 { get; set; }
         /// <summary>
-        /// Trọng lượng vải 2
-        /// </summary>
-        public float TrongLuongVai2 { get; set; }
-        /// <summary>
-        /// Khố vải 2
+        /// Khổ vải 2
         /// </summary>
         public float KhoVai2 { get; set; }
         /// <summary>
@@ -106,13 +89,33 @@ namespace DA6.Core.Entities
         /// </summary>
         public ThanhPhanVai ThanhPhanVai3 { get; set; }
         /// <summary>
-        /// Trọng lượng vải 3
-        /// </summary>
-        public float TrongLuongVai3 { get; set; }
-        /// <summary>
-        /// Khố vải 3
+        /// Khổ vải 3
         /// </summary>
         public float KhoVai3 { get; set; }
+        /// <summary>
+        /// Thành phần vải lót 1(bông 100%; TC 65-35; TC35-65;PES 100%)
+        /// </summary>
+        public string ThanhPhanVaiLot1 { get; set; }
+        /// <summary>
+        /// Khổ vải lót 1
+        /// </summary>
+        public float KhoVaiLot1 { get; set; }
+        /// <summary>
+        /// Thành phần vải lót 2(bông 100%; TC 65-35; TC35-65;PES 100%)
+        /// </summary>
+        public string ThanhPhanVaiLot2 { get; set; }
+        /// <summary>
+        /// Khổ vải lót 2
+        /// </summary>
+        public float KhoVaiLot2 { get; set; }
+        /// <summary>
+        /// Thành phần vải lót 3(bông 100%; TC 65-35; TC35-65;PES 100%)
+        /// </summary>
+        public string ThanhPhanVaiLot3 { get; set; }
+        /// <summary>
+        /// Khổ vải lót 3
+        /// </summary>
+        public float KhoVaiLot3 { get; set; }
         /// <summary>
         /// Số sản phẩm trên sơ đồ
         /// </summary>
@@ -137,6 +140,5 @@ namespace DA6.Core.Entities
         /// Khoản phí khác
         /// </summary>
         public float KhoanPhiKhac { get; set; }
-
     }
 }
