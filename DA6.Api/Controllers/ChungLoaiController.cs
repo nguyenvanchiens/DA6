@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DA6.Core.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DA6.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ChungLoaiController : ControllerBase
+    public class ChungLoaiController : BaseController
     {
+        public ChungLoaiController(DA6DbContext context) : base(context)
+        {
+        }
+       
     }
 }
