@@ -16,15 +16,12 @@ namespace DA6.Core.Entities
         /// </summary>
         /// 
         [Key]
-        [NotEmpty]
-        [PropertyName("Mã chủng loại")]
         public Guid MaCL { get; set; }
         /// <summary>
         /// Tên chủng loại
         /// </summary>
         /// 
         [NotEmpty]
-        [PropertyName("Tên chủng loại")]
         public string? Ten { get; set; }
         /// <summary>
         /// Mô tả chủng loại
@@ -36,9 +33,10 @@ namespace DA6.Core.Entities
         /// Jacket 2 lớp, jacket 2 lớp, jacket 3 lớp, jacket 5 lớp); 
         /// vest (Vest 1 lớp,Vest 1.5 lớp,Vest 2 lớp))
         /// </summary>
-        /// 
-        [NotEmpty]
-        [PropertyName("Kiểu chủng loại")]
         public string Kieu { get; set; }
+        public List<Ao> Aos { get; set; }
+        public List<Quan>  Quans { get; set; }
+        public List<JacKet>  JacKets { get; set; }
+        public List<Vest>  Vests { get; set; }
     }
 }
