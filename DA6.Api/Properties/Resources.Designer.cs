@@ -61,11 +61,65 @@ namespace DA6.Api.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dữ liệu đầu vào không hợp lệ.
+        /// </summary>
+        public static string BadRequest {
+            get {
+                return ResourceManager.GetString("BadRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} không được lớn hơn ngày hiện tại.
+        /// </summary>
+        public static string Check_Date_Time {
+            get {
+                return ResourceManager.GetString("Check_Date_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} vượt quá {1} số từ quy định.
+        /// </summary>
+        public static string Check_Maxlength {
+            get {
+                return ResourceManager.GetString("Check_Maxlength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không được bỏ trống {0}.
+        /// </summary>
+        public static string Check_NotEmpty {
+            get {
+                return ResourceManager.GetString("Check_NotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tham số truyền vào lỗi.
+        /// </summary>
+        public static string ExceptionError {
+            get {
+                return ResourceManager.GetString("ExceptionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lỗi hệ thống.
+        /// </summary>
+        public static string Internal_Server_Error {
+            get {
+                return ResourceManager.GetString("Internal_Server_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        public static string Error {
+        public static string String1 {
             get {
-                return ResourceManager.GetString("Error", resourceCulture);
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }

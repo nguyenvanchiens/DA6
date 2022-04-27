@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error" xml:space="preserve">
+  <data name="BadRequest" xml:space="preserve">
+    <value>Dữ liệu đầu vào không hợp lệ</value>
+  </data>
+  <data name="Check_Date_Time" xml:space="preserve">
+    <value>{0} không được lớn hơn ngày hiện tại</value>
+  </data>
+  <data name="Check_Maxlength" xml:space="preserve">
+    <value>{0} vượt quá {1} số từ quy định</value>
+  </data>
+  <data name="Check_NotEmpty" xml:space="preserve">
+    <value>Không được bỏ trống {0}</value>
+  </data>
+  <data name="ExceptionError" xml:space="preserve">
+    <value>Tham số truyền vào lỗi</value>
+  </data>
+  <data name="Internal_Server_Error" xml:space="preserve">
+    <value>Lỗi hệ thống</value>
+  </data>
+  <data name="String1" xml:space="preserve">
     <value />
   </data>
 </root>
