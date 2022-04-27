@@ -8,10 +8,10 @@ namespace DA6.Api.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
-        protected DA6DbContext _data;
-        public BaseController(DA6DbContext data)
+        protected DA6DbContext _context;
+        public BaseController(DA6DbContext context)
         {
-            _data = data;
+            _context = context;
         }
     }
 }
