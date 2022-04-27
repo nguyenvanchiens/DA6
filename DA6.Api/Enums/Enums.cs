@@ -402,6 +402,7 @@
         }
     }
     #endregion
+
     /// <summary>
     /// Thành phần vải
     /// </summary>
@@ -432,6 +433,8 @@
         /// </summary>
         Bambo
     }
+
+    #region Enums Trạng Thái Trả Về
     public enum StatusCodeRespon
     {
         BadRequest = 400,
@@ -439,4 +442,5 @@
         ErrorServer = 500,
         UpdateSuccess = 201
     }
+    #endregion
 }

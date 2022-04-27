@@ -1,21 +1,13 @@
 ﻿using DA6.Api.Attributes;
-using DA6.Api.Entities;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DA6.Core.Entities
+namespace DA6.Api.ViewModel.ChungLoai
 {
-    /// <summary>
-    /// Chủng loại
-    /// </summary>
-    [Table("ChungLoai")]
-    public class ChungLoai : BaseClass
+    public class ChungLoaiCreateVM
     {
         /// <summary>
         /// Mã chủng loại
         /// </summary>
         /// 
-        [Key]
         [NotEmpty]
         [PropertyName("Mã chủng loại")]
         public Guid MaCL { get; set; }
@@ -36,9 +28,6 @@ namespace DA6.Core.Entities
         /// Jacket 2 lớp, jacket 2 lớp, jacket 3 lớp, jacket 5 lớp); 
         /// vest (Vest 1 lớp,Vest 1.5 lớp,Vest 2 lớp))
         /// </summary>
-        /// 
-        [NotEmpty]
-        [PropertyName("Kiểu chủng loại")]
         public string Kieu { get; set; }
     }
 }
