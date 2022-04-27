@@ -6,8 +6,9 @@ namespace DA6.Api.Controllers
 {
     public class ChungLoaiController : BaseController
     {
-        public ChungLoaiController(DA6DbContext data) : base(data)
+        public ChungLoaiController(DA6DbContext context) : base(context)
         {
         }
+       
     }
 }
