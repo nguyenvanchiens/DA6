@@ -27,7 +27,7 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                if(Validate(model))
+                if(!Validate(model))
                 {
                     return Ok(new {msg="Không thể bỏ trống các trường", status=400});
                 }
@@ -49,7 +49,7 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                if (Validate(model))
+                if (!Validate(model))
                 {
                     return Ok(new { msg = "Không thể bỏ trống các trường", status = 400 });
                 }
@@ -65,7 +65,7 @@ namespace DA6.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpPost("{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
             try

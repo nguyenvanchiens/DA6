@@ -34,9 +34,5 @@ namespace DA6.Core.Entities
         /// vest (Vest 1 lớp,Vest 1.5 lớp,Vest 2 lớp))
         /// </summary>
         public string Kieu { get; set; }
-        public List<Ao> Aos { get; set; }
-        public List<Quan>  Quans { get; set; }
-        public List<JacKet>  JacKets { get; set; }
-        public List<Vest>  Vests { get; set; }
     }
 }
