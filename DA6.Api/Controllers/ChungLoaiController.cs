@@ -72,7 +72,7 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                if (chungLoai.Ten == "" || chungLoai.Kieu == "" || chungLoai.MoTa == "")
+                if (Validate(chungLoai))
                 {
                     return BadRequest(new { msg = "Dữ liệu không thể để trống", status = 400 });
                 }
@@ -93,6 +93,14 @@ namespace DA6.Api.Controllers
 
                 return BadRequest(e.Message);
             }
+        }
+        private bool Validate(ChungLoai model)
+        {
+            if(model == null|| model.Ten == "" || model.Kieu == "" || model.MoTa == "")
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
