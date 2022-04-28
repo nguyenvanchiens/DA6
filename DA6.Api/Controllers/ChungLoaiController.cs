@@ -18,11 +18,11 @@ namespace DA6.Api.Controllers
             return Ok(new { data = result});
         }
         [HttpPost]
-        public IActionResult Insert([FromBody] ChungLoaiCreateVM chungLoai)
+        public IActionResult Insert([FromBody] ChungLoai chungLoai)
         {
             try
             {
-                if (chungLoai.Ten == "" || chungLoai.Kieu == "" || chungLoai.MoTa == "")
+                if (!Validate(chungLoai))
                 {
                     return BadRequest(new { msg = "Dữ liệu không thể để trống", status = 400 });
                 }
@@ -72,7 +72,7 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                if (Validate(chungLoai))
+                if (!Validate(chungLoai))
                 {
                     return BadRequest(new { msg = "Dữ liệu không thể để trống", status = 400 });
                 }
