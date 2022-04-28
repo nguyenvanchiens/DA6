@@ -23,6 +23,7 @@ namespace DA6.Core.Data
         public DbSet<QuyTrinhChiTiet> QuyTrinhChiTiets { get; set; }
         public DbSet<QuyTrinhSanPham> QuyTrinhSanPhams { get; set; }
         public DbSet<Vest>  Vests { get; set; }
+        public DbSet<NguoiDung>   NguoiDungs{ get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
