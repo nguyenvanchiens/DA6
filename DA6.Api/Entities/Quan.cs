@@ -27,27 +27,27 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Kiểu quần (Dài; Lỡ; Sooc)
         /// </summary>
-        public KieuQuan KieuQuan { get; set; }
+        public string KieuQuan { get; set; }
         /// <summary>
         /// Kiểu cạp
         /// </summary>
-        public KieuCap KieuCap { get; set; }
+        public string KieuCap { get; set; }
         /// <summary>
         /// Kiểu túi trước
         /// </summary>
-        public KieuTuiTruoc KieuTuiTruoc { get; set; }
+        public string KieuTuiTruoc { get; set; }
         /// <summary>
         /// Kiểu túi sau
         /// </summary>
-        public KieuTuiSau KieuTuiSau { get; set; }
+        public string KieuTuiSau { get; set; }
         /// <summary>
-        /// Kiểu tú gối
+        /// Kiểu túi gối
         /// </summary>
-        public KieuTuiGoi KieuTuiGoi { get; set; }
+        public string KieuTuiGoi { get; set; }
         /// <summary>
         /// Kiểu cửa quần
         /// </summary>
-        public KieuCuaQuan KieuCuaQuan { get; set; }
+        public string KieuCuaQuan { get; set; }
         /// <summary>
         /// Kiểu thân trước (Bổ ngang;Bổ dọc;Bổ ngang và bổ dọc)
         /// </summary>

@@ -3,6 +3,7 @@ using System;
 using DA6.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DA6.Api.Migrations
 {
     [DbContext(typeof(DA6DbContext))]
-    partial class DA6DbContextModelSnapshot : ModelSnapshot
+    [Migration("20220512171132_refesTableQuan")]
+    partial class refesTableQuan
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -648,129 +650,6 @@ namespace DA6.Api.Migrations
                     b.ToTable("ThanhPhanVais");
                 });
 
-            modelBuilder.Entity("DA6.Api.Entities.Vest", b =>
-                {
-                    b.Property<Guid>("MaVest")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ChungLoaiMaCL")
-                        .HasColumnType("char(36)");
-
-                    b.Property<float>("DaiAo")
-                        .HasColumnType("float");
-
-                    b.Property<float>("DaiTay")
-                        .HasColumnType("float");
-
-                    b.Property<float>("KhoVai1")
-                        .HasColumnType("float");
-
-                    b.Property<float>("KhoVai2")
-                        .HasColumnType("float");
-
-                    b.Property<float>("KhoVai3")
-                        .HasColumnType("float");
-
-                    b.Property<float>("KhoVaiLot1")
-                        .HasColumnType("float");
-
-                    b.Property<float>("KhoVaiLot2")
-                        .HasColumnType("float");
-
-                    b.Property<float>("KhoVaiLot3")
-                        .HasColumnType("float");
-
-                    b.Property<float>("KhoanPhiKhac")
-                        .HasColumnType("float");
-
-                    b.Property<string>("KieuCo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("KieuNep")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("KieuTay")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("KieuThanSau")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("KieuThanTruoc")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("KieuTuiNguc")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("KieuTuiSuon")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("KieuVe")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<float>("LoiNhuanDuKien")
-                        .HasColumnType("float");
-
-                    b.Property<Guid>("MaCL")
-                        .HasColumnType("char(36)");
-
-                    b.Property<float>("MucLuongKyVong")
-                        .HasColumnType("float");
-
-                    b.Property<float>("PhuPhi")
-                        .HasColumnType("float");
-
-                    b.Property<int>("SoLaoDongTrenDayTruyen")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SoSanPhanTrenSoDo")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ThanhPhanVai1")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ThanhPhanVai2")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ThanhPhanVai3")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ThanhPhanVaiLot1")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ThanhPhanVaiLot2")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ThanhPhanVaiLot3")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<float>("VongGau")
-                        .HasColumnType("float");
-
-                    b.Property<float>("VongNguc")
-                        .HasColumnType("float");
-
-                    b.HasKey("MaVest");
-
-                    b.HasIndex("ChungLoaiMaCL");
-
-                    b.ToTable("Vests");
-                });
-
             modelBuilder.Entity("DA6.Core.Entities.Ao", b =>
                 {
                     b.Property<Guid>("MaA")
@@ -974,17 +853,6 @@ namespace DA6.Api.Migrations
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.Quan", b =>
-                {
-                    b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
-                        .WithMany()
-                        .HasForeignKey("ChungLoaiMaCL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChungLoai");
-                });
-
-            modelBuilder.Entity("DA6.Api.Entities.Vest", b =>
                 {
                     b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
                         .WithMany()

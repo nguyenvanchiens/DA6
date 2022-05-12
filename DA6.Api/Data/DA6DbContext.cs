@@ -34,6 +34,14 @@ namespace DA6.Core.Data
         public DbSet<KieuTui> KieuTuis { get; set; }
         public DbSet<KieuXe> KieuXes { get; set; }
         public DbSet<ThanhPhanVai> ThanhPhanVais { get; set; }
+        public DbSet<KieuQuan> KieuQuans { get; set; }
+        public DbSet<KieuCap> KieuCaps { get; set; }
+        public DbSet<KieuTuiTruoc> KieuTuiTruocs { get; set; }
+        public DbSet<KieuTuiSau> KieuTuiSaus { get; set; }
+        public DbSet<KieuTuiGoi> KieuTuiGois { get; set; }
+        public DbSet<KieuCuaQuan> KieuCuaQuans { get; set; }
+        public DbSet<DaiQuan> DaiQuans { get; set; }
+        
        
     }
 }
