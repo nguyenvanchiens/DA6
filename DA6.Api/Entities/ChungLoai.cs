@@ -5,10 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Core.Entities
 {
-    /// <summary>
-    /// Chủng loại
-    /// </summary>
-    [Table("ChungLoai")]
     public class ChungLoai : BaseClass
     {
         /// <summary>

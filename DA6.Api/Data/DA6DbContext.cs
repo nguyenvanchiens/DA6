@@ -24,9 +24,16 @@ namespace DA6.Core.Data
         public DbSet<QuyTrinhSanPham> QuyTrinhSanPhams { get; set; }
         public DbSet<Vest>  Vests { get; set; }
         public DbSet<NguoiDung>   NguoiDungs{ get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
+        public DbSet<KieuCo> KieuCos { get; set; }
+        public DbSet<KieuCuaTay> KieuCuaTays { get; set; }
+        public DbSet<KieuGau> KieuGaus { get; set; }
+        public DbSet<KieuNep> KieuNeps { get; set; }
+        public DbSet<KieuTay> KieuTays { get; set; }
+        public DbSet<KieuThanSau> KieuThanSaus { get; set; }
+        public DbSet<KieuThanTruoc> KieuThanTruocs { get; set; }
+        public DbSet<KieuTui> KieuTuis { get; set; }
+        public DbSet<KieuXe> KieuXes { get; set; }
+        public DbSet<ThanhPhanVai> ThanhPhanVais { get; set; }
+       
     }
 }

@@ -72,7 +72,7 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Thành phần vải 
         /// </summary>
-        public ThanhPhanVai ThanhPhanVai1 { get; set; }
+        public string ThanhPhanVai1 { get; set; }
         /// <summary>
         /// Khổ vải 1
         /// </summary>
@@ -80,7 +80,7 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Thành phần vải 2
         /// </summary>
-        public ThanhPhanVai ThanhPhanVai2 { get; set; }
+        public string ThanhPhanVai2 { get; set; }
         /// <summary>
         /// Khổ vải 2
         /// </summary>
@@ -88,7 +88,7 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Thành phần vải 3
         /// </summary>
-        public ThanhPhanVai ThanhPhanVai3 { get; set; }
+        public string ThanhPhanVai3 { get; set; }
         /// <summary>
         /// Khổ vải 3
         /// </summary>
