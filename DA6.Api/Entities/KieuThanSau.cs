@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using DA6.Core.Entities;
 namespace DA6.Api.Entities
 {
-    public class KieuThanSau
+    public class KieuThanSau:BaseClass
     {
         [Key]
         public string MaKieuThanSau { get; set; }
