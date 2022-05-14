@@ -13,7 +13,7 @@ namespace DA6.Api.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ChungLoai",
+                name: "ChungLoais",
                 columns: table => new
                 {
                     MaCL = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
@@ -32,12 +32,147 @@ namespace DA6.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChungLoai", x => x.MaCL);
+                    table.PrimaryKey("PK_ChungLoais", x => x.MaCL);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "LoaiTrangPhuc",
+                name: "KieuCos",
+                columns: table => new
+                {
+                    MaKieuCo = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieuCo = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuCos", x => x.MaKieuCo);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "KieuCuaTays",
+                columns: table => new
+                {
+                    MaKieuCuaTay = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieuCuaTay = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuCuaTays", x => x.MaKieuCuaTay);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "KieuGaus",
+                columns: table => new
+                {
+                    MaKieuGau = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieuGau = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuGaus", x => x.MaKieuGau);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "KieuNeps",
+                columns: table => new
+                {
+                    MaKieuNep = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieuNep = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuNeps", x => x.MaKieuNep);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "KieuTays",
+                columns: table => new
+                {
+                    MaKieuTay = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieu = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuTays", x => x.MaKieuTay);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "KieuThanSaus",
+                columns: table => new
+                {
+                    MaKieuThanSau = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieuThanSau = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuThanSaus", x => x.MaKieuThanSau);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "KieuThanTruocs",
+                columns: table => new
+                {
+                    MaKieuThanTruoc = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieuThanTruoc = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuThanTruocs", x => x.MaKieuThanTruoc);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "KieuTuis",
+                columns: table => new
+                {
+                    MaKieuTui = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieuTui = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuTuis", x => x.MaKieuTui);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "KieuXes",
+                columns: table => new
+                {
+                    MaKieuXe = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenKieuXe = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KieuXes", x => x.MaKieuXe);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "LoaiTrangPhucs",
                 columns: table => new
                 {
                     MaTP = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
@@ -52,7 +187,7 @@ namespace DA6.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LoaiTrangPhuc", x => x.MaTP);
+                    table.PrimaryKey("PK_LoaiTrangPhucs", x => x.MaTP);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -73,6 +208,30 @@ namespace DA6.Api.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LoaiVais", x => x.MaVai);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "NguoiDung",
+                columns: table => new
+                {
+                    NguoiDungId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    TenNguoiDung = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TaiKhoan = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    MatKhau = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Email = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    SoDienThoai = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Quyen = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NguoiDung", x => x.NguoiDungId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -128,31 +287,58 @@ namespace DA6.Api.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Ao",
+                name: "ThanhPhanVais",
+                columns: table => new
+                {
+                    MaThanhPhanVai = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TenThanhPhanVai = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ThanhPhanVais", x => x.MaThanhPhanVai);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Aos",
                 columns: table => new
                 {
                     MaA = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     MaCL = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    KieuTay = table.Column<int>(type: "int", nullable: false),
-                    KieuCuaTay = table.Column<int>(type: "int", nullable: false),
-                    KieuGau = table.Column<int>(type: "int", nullable: false),
-                    KieuCo = table.Column<int>(type: "int", nullable: false),
-                    KieuTui = table.Column<int>(type: "int", nullable: false),
-                    KieuNep = table.Column<int>(type: "int", nullable: false),
-                    KieuThanTruoc = table.Column<int>(type: "int", nullable: false),
-                    KieuXe = table.Column<int>(type: "int", nullable: false),
-                    KieuThanSau = table.Column<int>(type: "int", nullable: false),
+                    KieuTay = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    KieuCuaTay = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    KieuGau = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    KieuCo = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    KieuTui = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    KieuNep = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    KieuThanTruoc = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    KieuXe = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    KieuThanSau = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     DaiAo = table.Column<float>(type: "float", nullable: false),
                     DaiTay = table.Column<float>(type: "float", nullable: false),
                     VongNguc = table.Column<float>(type: "float", nullable: false),
                     VongMong = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai1 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai1 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     TrongLuongVai1 = table.Column<float>(type: "float", nullable: false),
                     KhoVai1 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai2 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai2 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     TrongLuongVai2 = table.Column<float>(type: "float", nullable: false),
                     KhoVai2 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai3 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai3 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     TrongLuongVai3 = table.Column<float>(type: "float", nullable: false),
                     KhoVai3 = table.Column<float>(type: "float", nullable: false),
                     SoSanPhanTrenSoDo = table.Column<int>(type: "int", nullable: false),
@@ -170,11 +356,11 @@ namespace DA6.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ao", x => x.MaA);
+                    table.PrimaryKey("PK_Aos", x => x.MaA);
                     table.ForeignKey(
-                        name: "FK_Ao_ChungLoai_MaCL",
+                        name: "FK_Aos_ChungLoais_MaCL",
                         column: x => x.MaCL,
-                        principalTable: "ChungLoai",
+                        principalTable: "ChungLoais",
                         principalColumn: "MaCL",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -209,18 +395,23 @@ namespace DA6.Api.Migrations
                     DaiAo = table.Column<float>(type: "float", nullable: false),
                     VongNguc = table.Column<float>(type: "float", nullable: false),
                     DaiTay = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVaiChinh1 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVaiChinh1 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVaiChinh1 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVaiChinh2 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVaiChinh2 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVaiChinh2 = table.Column<float>(type: "float", nullable: false),
                     ThanhPhanVaiChinh3 = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVaiChinh3 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVaiLot1 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVaiLot1 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVaiLot1 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVaiLot2 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVaiLot2 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVaiLot2 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVaiLot3 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVaiLot3 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVaiLot3 = table.Column<float>(type: "float", nullable: false),
                     SoSanPhanTrenSoDo = table.Column<int>(type: "int", nullable: false),
                     SoLaoDongTrenDayTruyen = table.Column<int>(type: "int", nullable: false),
@@ -233,9 +424,9 @@ namespace DA6.Api.Migrations
                 {
                     table.PrimaryKey("PK_JacKets", x => x.MaJket);
                     table.ForeignKey(
-                        name: "FK_JacKets_ChungLoai_MaCL",
+                        name: "FK_JacKets_ChungLoais_MaCL",
                         column: x => x.MaCL,
-                        principalTable: "ChungLoai",
+                        principalTable: "ChungLoais",
                         principalColumn: "MaCL",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -261,11 +452,14 @@ namespace DA6.Api.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     VongMong = table.Column<float>(type: "float", nullable: false),
                     VongBung = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai1 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai1 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVai1 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai2 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai2 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVai2 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai3 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai3 = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVai3 = table.Column<float>(type: "float", nullable: false),
                     ThanhPhanVaiLot1 = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -287,9 +481,9 @@ namespace DA6.Api.Migrations
                 {
                     table.PrimaryKey("PK_Quans", x => x.MaQuan);
                     table.ForeignKey(
-                        name: "FK_Quans_ChungLoai_MaCL",
+                        name: "FK_Quans_ChungLoais_MaCL",
                         column: x => x.MaCL,
-                        principalTable: "ChungLoai",
+                        principalTable: "ChungLoais",
                         principalColumn: "MaCL",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -321,11 +515,14 @@ namespace DA6.Api.Migrations
                     VongGau = table.Column<float>(type: "float", nullable: false),
                     VongNguc = table.Column<float>(type: "float", nullable: false),
                     DaiTay = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai1 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai1MaThanhPhanVai = table.Column<string>(type: "varchar(255)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVai1 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai2 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai2MaThanhPhanVai = table.Column<string>(type: "varchar(255)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVai2 = table.Column<float>(type: "float", nullable: false),
-                    ThanhPhanVai3 = table.Column<int>(type: "int", nullable: false),
+                    ThanhPhanVai3MaThanhPhanVai = table.Column<string>(type: "varchar(255)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KhoVai3 = table.Column<float>(type: "float", nullable: false),
                     ThanhPhanVaiLot1 = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -347,31 +544,31 @@ namespace DA6.Api.Migrations
                 {
                     table.PrimaryKey("PK_Vests", x => x.MaVest);
                     table.ForeignKey(
-                        name: "FK_Vests_ChungLoai_MaCL",
+                        name: "FK_Vests_ChungLoais_MaCL",
                         column: x => x.MaCL,
-                        principalTable: "ChungLoai",
+                        principalTable: "ChungLoais",
                         principalColumn: "MaCL",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ao_MaCL",
-                table: "Ao",
+                name: "IX_Aos_ChungLoaiMaCL",
+                table: "Aos",
                 column: "MaCL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_JacKets_MaCL",
+                name: "IX_JacKets_ChungLoaiMaCL",
                 table: "JacKets",
                 column: "MaCL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Quans_MaCL",
+                name: "IX_Quans_ChungLoaiMaCL",
                 table: "Quans",
                 column: "MaCL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vests_MaCL",
+                name: "IX_Vests_ChungLoaiMaCL",
                 table: "Vests",
                 column: "MaCL");
         }
@@ -379,16 +576,46 @@ namespace DA6.Api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Ao");
+                name: "Aos");
 
             migrationBuilder.DropTable(
                 name: "JacKets");
 
             migrationBuilder.DropTable(
-                name: "LoaiTrangPhuc");
+                name: "KieuCos");
+
+            migrationBuilder.DropTable(
+                name: "KieuCuaTays");
+
+            migrationBuilder.DropTable(
+                name: "KieuGaus");
+
+            migrationBuilder.DropTable(
+                name: "KieuNeps");
+
+            migrationBuilder.DropTable(
+                name: "KieuTays");
+
+            migrationBuilder.DropTable(
+                name: "KieuThanSaus");
+
+            migrationBuilder.DropTable(
+                name: "KieuThanTruocs");
+
+            migrationBuilder.DropTable(
+                name: "KieuTuis");
+
+            migrationBuilder.DropTable(
+                name: "KieuXes");
+
+            migrationBuilder.DropTable(
+                name: "LoaiTrangPhucs");
 
             migrationBuilder.DropTable(
                 name: "LoaiVais");
+
+            migrationBuilder.DropTable(
+                name: "NguoiDung");
 
             migrationBuilder.DropTable(
                 name: "Quans");
@@ -403,7 +630,10 @@ namespace DA6.Api.Migrations
                 name: "Vests");
 
             migrationBuilder.DropTable(
-                name: "ChungLoai");
+                name: "ChungLoais");
+
+            migrationBuilder.DropTable(
+                name: "ThanhPhanVais");
         }
     }
 }

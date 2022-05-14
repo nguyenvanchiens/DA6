@@ -3,10 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Core.Entities
 {
-    /// <summary>
-    /// Loại trang phục
-    /// </summary>
-    [Table("LoaiTrangPhuc")]
+
     public class LoaiTrangPhuc : BaseClass
     {
         /// <summary>

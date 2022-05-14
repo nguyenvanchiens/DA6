@@ -73,7 +73,7 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Thành phần vải chính 1 ((bông 100%; TC 65-35; TC35-65;PES 100%))
         /// </summary>
-        public ThanhPhanVai ThanhPhanVaiChinh1 { get; set; }
+        public string ThanhPhanVaiChinh1 { get; set; }
         /// <summary>
         /// Khổ vải chính 1
         /// </summary>
@@ -81,7 +81,7 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Thành phần vải chính 2 ((bông 100%; TC 65-35; TC35-65;PES 100%))
         /// </summary>
-        public ThanhPhanVai ThanhPhanVaiChinh2 { get; set; }
+        public string ThanhPhanVaiChinh2 { get; set; }
         /// <summary>
         /// Khổ vải chính 2
         /// </summary>
@@ -97,7 +97,7 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Thành phần vải lót 1 ((bông 100%; TC 65-35; TC35-65;PES 100%))
         /// </summary>
-        public ThanhPhanVai ThanhPhanVaiLot1 { get; set; }
+        public string ThanhPhanVaiLot1 { get; set; }
         /// <summary>
         /// Khổ vải lót 1
         /// </summary>
@@ -105,7 +105,7 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Thành phần vải lót 2 ((bông 100%; TC 65-35; TC35-65;PES 100%))
         /// </summary>
-        public ThanhPhanVai ThanhPhanVaiLot2 { get; set; }
+        public string ThanhPhanVaiLot2 { get; set; }
         /// <summary>
         /// Khổ vải lót 2
         /// </summary>
@@ -113,7 +113,7 @@ namespace DA6.Api.Entities
         /// <summary>
         /// Thành phần vải lót 3 ((bông 100%; TC 65-35; TC35-65;PES 100%))
         /// </summary>
-        public ThanhPhanVai ThanhPhanVaiLot3 { get; set; }
+        public string ThanhPhanVaiLot3 { get; set; }
         /// <summary>
         /// Khổ vải lót 3
         /// </summary>
