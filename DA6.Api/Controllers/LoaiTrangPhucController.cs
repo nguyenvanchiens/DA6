@@ -1,7 +1,8 @@
-﻿using DA6.Core.Data;
+﻿using DA6.Api.Common;
+using DA6.Core.Data;
 using DA6.Core.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace DA6.Api.Controllers
 {
@@ -27,9 +28,10 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                if(!Validate(model))
+                model.MoTa = Helper.SlugFriendly(model.Ten);
+                if (!Validate(model))
                 {
-                    return Ok(new {msg="Không thể bỏ trống các trường", status=400});
+                    return Ok(new { msg = "Không thể bỏ trống các trường", status = 400 });
                 }
                 var entity = new LoaiTrangPhuc();
                 entity.MaTP = Guid.NewGuid();
@@ -37,7 +39,7 @@ namespace DA6.Api.Controllers
                 entity.MoTa = model.MoTa;
                 _context.LoaiTrangPhucs.Add(entity);
                 var result = _context.SaveChanges();
-                return Ok(new {data=result, status=201});
+                return Ok(new { data = result, status = 201 });
             }
             catch (Exception e)
             {
@@ -45,7 +47,7 @@ namespace DA6.Api.Controllers
             }
         }
         [HttpPut("{id}")]
-        public IActionResult Update(Guid id,[FromBody] LoaiTrangPhuc model)
+        public IActionResult Update(Guid id, [FromBody] LoaiTrangPhuc model)
         {
             try
             {
@@ -71,7 +73,7 @@ namespace DA6.Api.Controllers
             try
             {
                 var entity = _context.LoaiTrangPhucs.Find(id);
-                if(entity == null)
+                if (entity == null)
                 {
                     return BadRequest(new { mgs = "Không tìm thấy id", status = 400 });
                 }
@@ -92,5 +94,6 @@ namespace DA6.Api.Controllers
             }
             return true;
         }
+        
     }
 }
