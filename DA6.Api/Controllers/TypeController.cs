@@ -9,7 +9,7 @@ namespace DA6.Api.Controllers
         public TypeController(DA6DbContext context) : base(context)
         {
         }
-        [HttpGet]
+        [HttpGet("GetAllKieuTay")]
         public IActionResult GetAllKieuTay()
         {
             try
@@ -23,7 +23,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-         [HttpGet]
+         [HttpGet("GetAllKieuCuaTay")]
         public IActionResult GetAllKieuCuaTay()
         {
             try
@@ -37,7 +37,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [HttpGet("GetAllKieuGau")]
         public IActionResult GetAllKieuGau()
         {
             try
@@ -51,7 +51,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [HttpGet("GetAllKieuCo")]
         public IActionResult GetAllKieuCo()
         {
             try
@@ -65,7 +65,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [HttpGet("GetAllKieuTui")]
         public IActionResult GetAllKieuTui()
         {
             try
@@ -79,7 +79,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [HttpGet("GetAllKieuNep")]
         public IActionResult GetAllKieuNep()
         {
             try
@@ -93,7 +93,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [HttpGet("")]
         public IActionResult GetAllKieuThanTruoc()
         {
             try
@@ -107,7 +107,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [HttpGet("GetAllKieuXe")]
         public IActionResult GetAllKieuXe()
         {
             try
@@ -121,7 +121,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [HttpGet("GetAllKieuThanSau")]
         public IActionResult GetAllKieuThanSau()
         {
             try
@@ -135,7 +135,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [HttpGet("GetAllThanhPhanVai")]
         public IActionResult GetAllThanhPhanVai()
         {
             try
