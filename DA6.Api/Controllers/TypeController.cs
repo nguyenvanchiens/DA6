@@ -10,20 +10,6 @@ namespace DA6.Api.Controllers
         {
         }
         [HttpGet]
-        public IActionResult GetAllChungLoai()
-        {
-            try
-            {
-                var result = _context.ChungLoais.ToList();
-                return Ok(result);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        [HttpGet]
         public IActionResult GetAllKieuTay()
         {
             try
