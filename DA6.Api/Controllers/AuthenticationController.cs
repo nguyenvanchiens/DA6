@@ -38,12 +38,12 @@ namespace DA6.Api.Controllers
                         new Claim(ClaimTypes.Role,user.Quyen)
 
                     };
-                    var identity = new ClaimsIdentity(Claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    var principal = new ClaimsPrincipal(identity);
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties()
-                    {
-                        IsPersistent = RememberMe
-                    });
+                    //var identity = new ClaimsIdentity(Claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    //var principal = new ClaimsPrincipal(identity);
+                    //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties()
+                    //{
+                    //    IsPersistent = RememberMe
+                    //});
                     var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
                     var Token = new JwtSecurityToken(
                             _config["Tokens:Issuer"],
