@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using DA6.Core.Entities;
 namespace DA6.Api.Entities
 {
-    public class KieuThanTruoc
+    public class KieuThanTruoc:BaseClass
     {
         [Key]
-        public string MaKieuThanTruoc { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int MaKieuThanTruoc { get; set; }
         public string TenKieuThanTruoc { get; set; }
     }
 }

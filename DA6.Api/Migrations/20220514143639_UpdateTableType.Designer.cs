@@ -3,6 +3,7 @@ using System;
 using DA6.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DA6.Api.Migrations
 {
     [DbContext(typeof(DA6DbContext))]
-    partial class DA6DbContextModelSnapshot : ModelSnapshot
+    [Migration("20220514143639_UpdateTableType")]
+    partial class UpdateTableType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,9 +23,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.DaiQuan", b =>
                 {
-                    b.Property<int>("MaDaiQuan")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaDaiQuan")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -176,9 +177,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCap", b =>
                 {
-                    b.Property<int>("MaKieuCap")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuCap")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -203,9 +203,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCo", b =>
                 {
-                    b.Property<int>("MaKieuCo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuCo")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -230,9 +229,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCuaQuan", b =>
                 {
-                    b.Property<int>("MaKieuCuaQuan")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuCuaQuan")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -257,9 +255,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCuaTay", b =>
                 {
-                    b.Property<int>("MaKieuCuaTay")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuCuaTay")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -284,9 +281,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuGau", b =>
                 {
-                    b.Property<int>("MaKieuGau")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuGau")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -311,9 +307,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuNep", b =>
                 {
-                    b.Property<int>("MaKieuNep")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuNep")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -338,9 +333,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuQuan", b =>
                 {
-                    b.Property<int>("MaKieuQuan")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuQuan")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -365,9 +359,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTay", b =>
                 {
-                    b.Property<int>("MaKieuTay")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuTay")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -392,9 +385,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuThanSau", b =>
                 {
-                    b.Property<int>("MaKieuThanSau")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuThanSau")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -419,9 +411,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuThanTruoc", b =>
                 {
-                    b.Property<int>("MaKieuThanTruoc")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuThanTruoc")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -446,9 +437,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTui", b =>
                 {
-                    b.Property<int>("MaKieuTui")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuTui")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -473,9 +463,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiGoi", b =>
                 {
-                    b.Property<int>("MaKieuTuiGoi")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuTuiGoi")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -500,9 +489,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiSau", b =>
                 {
-                    b.Property<int>("MaKieuTuiSau")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuTuiSau")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -527,9 +515,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiTruoc", b =>
                 {
-                    b.Property<int>("MaKieuTuiTruoc")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuTuiTruoc")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -554,9 +541,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.KieuXe", b =>
                 {
-                    b.Property<int>("MaKieuXe")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaKieuXe")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
@@ -844,9 +830,8 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.ThanhPhanVai", b =>
                 {
-                    b.Property<int>("MaThanhPhanVai")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MaThanhPhanVai")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");

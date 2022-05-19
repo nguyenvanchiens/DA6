@@ -54,7 +54,6 @@ namespace DA6.Api.Controllers
                 {
                     return BadRequest("error");
                 }
-                model.CreatedDate = DateTime.Now;
                 _context.Aos.Add(model);
                 var reuslt = _context.SaveChanges();
 
@@ -107,6 +106,7 @@ namespace DA6.Api.Controllers
                 entity.PhuPhi = model.PhuPhi;
                 entity.KhoanPhiKhac = model.KhoanPhiKhac;
                 entity.ModifiedBy = model.ModifiedBy;
+                
                 _context.Aos.Update(entity);
                 var result = _context.SaveChanges();
                 return Ok(result);
