@@ -1,8 +1,10 @@
 ﻿using DA6.Core.Entities;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Api.Entities
 {
+    [Table("quytrinhsanphams")]
     public class QuyTrinhSanPham: BaseClass
     {
         /// <summary>

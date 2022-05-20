@@ -6,6 +6,7 @@ using static DA6.Core.Enums.EnumsQuan;
 
 namespace DA6.Api.Entities
 {
+    [Table("quans")]
     /// <summary>
     /// Quần
     /// </summary>
@@ -21,9 +22,7 @@ namespace DA6.Api.Entities
         /// Mã chủng loại
         /// </summary>
         /// 
-        [ForeignKey("MaCL")]
         public Guid MaCL { get; set; }
-        public ChungLoai ChungLoai { get; set; }
         /// <summary>
         /// Kiểu quần (Dài; Lỡ; Sooc)
         /// </summary>

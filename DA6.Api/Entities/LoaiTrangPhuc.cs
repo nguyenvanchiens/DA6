@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Core.Entities
 {
-
+    [Table("loaitrangphucs")]
     public class LoaiTrangPhuc : BaseClass
     {
         /// <summary>

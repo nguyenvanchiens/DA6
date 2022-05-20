@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Core.Entities
 {
+    [Table("chungloais")]
     public class ChungLoai : BaseClass
     {
         /// <summary>

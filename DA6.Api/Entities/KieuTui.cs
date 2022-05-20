@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using DA6.Core.Entities;
 namespace DA6.Api.Entities
 {
+    [Table("kieutuis")]
     public class KieuTui:BaseClass
     {
         [Key]

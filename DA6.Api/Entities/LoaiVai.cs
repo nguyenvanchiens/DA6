@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Api.Entities
 {
+    [Table("loaivais")]
     /// <summary>
     /// Loại vải
     /// </summary>

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Api.Entities
 {
+    [Table("kieucaps")]
     public class KieuCap:BaseClass
     {
         [Key]

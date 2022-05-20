@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DA6.Api.Migrations
 {
     [DbContext(typeof(DA6DbContext))]
-    [Migration("20220512171132_refesTableQuan")]
-    partial class refesTableQuan
+    [Migration("20220520181318_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,8 +23,21 @@ namespace DA6.Api.Migrations
 
             modelBuilder.Entity("DA6.Api.Entities.DaiQuan", b =>
                 {
-                    b.Property<string>("MaDaiQuan")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaDaiQuan")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenDaiQuan")
                         .IsRequired()
@@ -32,16 +45,13 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaDaiQuan");
 
-                    b.ToTable("DaiQuans");
+                    b.ToTable("daiquans");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.JacKet", b =>
                 {
                     b.Property<Guid>("MaJket")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ChungLoaiMaCL")
                         .HasColumnType("char(36)");
 
                     b.Property<float>("DaiAo")
@@ -158,15 +168,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaJket");
 
-                    b.HasIndex("ChungLoaiMaCL");
-
-                    b.ToTable("JacKets");
+                    b.ToTable("jackets");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCap", b =>
                 {
-                    b.Property<string>("MaKieuCap")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuCap")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuCap")
                         .IsRequired()
@@ -174,13 +195,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuCap");
 
-                    b.ToTable("KieuCaps");
+                    b.ToTable("kieucaps");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCo", b =>
                 {
-                    b.Property<string>("MaKieuCo")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuCo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuCo")
                         .IsRequired()
@@ -188,13 +222,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuCo");
 
-                    b.ToTable("KieuCos");
+                    b.ToTable("kieucos");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCuaQuan", b =>
                 {
-                    b.Property<string>("MaKieuCuaQuan")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuCuaQuan")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuCuaQuan")
                         .IsRequired()
@@ -202,13 +249,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuCuaQuan");
 
-                    b.ToTable("KieuCuaQuans");
+                    b.ToTable("kieucuaquans");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCuaTay", b =>
                 {
-                    b.Property<string>("MaKieuCuaTay")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuCuaTay")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuCuaTay")
                         .IsRequired()
@@ -216,13 +276,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuCuaTay");
 
-                    b.ToTable("KieuCuaTays");
+                    b.ToTable("kieucuatays");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuGau", b =>
                 {
-                    b.Property<string>("MaKieuGau")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuGau")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuGau")
                         .IsRequired()
@@ -230,13 +303,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuGau");
 
-                    b.ToTable("KieuGaus");
+                    b.ToTable("kieugaus");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuNep", b =>
                 {
-                    b.Property<string>("MaKieuNep")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuNep")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuNep")
                         .IsRequired()
@@ -244,13 +330,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuNep");
 
-                    b.ToTable("KieuNeps");
+                    b.ToTable("kieuneps");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuQuan", b =>
                 {
-                    b.Property<string>("MaKieuQuan")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuQuan")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuQuan")
                         .IsRequired()
@@ -258,13 +357,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuQuan");
 
-                    b.ToTable("KieuQuans");
+                    b.ToTable("kieuquans");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTay", b =>
                 {
-                    b.Property<string>("MaKieuTay")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuTay")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieu")
                         .IsRequired()
@@ -272,13 +384,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTay");
 
-                    b.ToTable("KieuTays");
+                    b.ToTable("kieutays");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuThanSau", b =>
                 {
-                    b.Property<string>("MaKieuThanSau")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuThanSau")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuThanSau")
                         .IsRequired()
@@ -286,13 +411,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuThanSau");
 
-                    b.ToTable("KieuThanSaus");
+                    b.ToTable("kieuthansaus");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuThanTruoc", b =>
                 {
-                    b.Property<string>("MaKieuThanTruoc")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuThanTruoc")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuThanTruoc")
                         .IsRequired()
@@ -300,13 +438,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuThanTruoc");
 
-                    b.ToTable("KieuThanTruocs");
+                    b.ToTable("kieuthantruocs");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTui", b =>
                 {
-                    b.Property<string>("MaKieuTui")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuTui")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuTui")
                         .IsRequired()
@@ -314,13 +465,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTui");
 
-                    b.ToTable("KieuTuis");
+                    b.ToTable("kieutuis");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiGoi", b =>
                 {
-                    b.Property<string>("MaKieuTuiGoi")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuTuiGoi")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuTuiGoi")
                         .IsRequired()
@@ -328,13 +492,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTuiGoi");
 
-                    b.ToTable("KieuTuiGois");
+                    b.ToTable("kieutuigois");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiSau", b =>
                 {
-                    b.Property<string>("MaKieuTuiSau")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuTuiSau")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuTuiSau")
                         .IsRequired()
@@ -342,13 +519,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTuiSau");
 
-                    b.ToTable("KieuTuiSaus");
+                    b.ToTable("kieutuisaus");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiTruoc", b =>
                 {
-                    b.Property<string>("MaKieuTuiTruoc")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuTuiTruoc")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuTuiTruoc")
                         .IsRequired()
@@ -356,13 +546,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTuiTruoc");
 
-                    b.ToTable("KieuTuiTruocs");
+                    b.ToTable("kieutuitruocs");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuXe", b =>
                 {
-                    b.Property<string>("MaKieuXe")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaKieuXe")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenKieuXe")
                         .IsRequired()
@@ -370,7 +573,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuXe");
 
-                    b.ToTable("KieuXes");
+                    b.ToTable("kieuxes");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.LoaiVai", b =>
@@ -396,7 +599,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaVai");
 
-                    b.ToTable("LoaiVais");
+                    b.ToTable("loaivais");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.NguoiDung", b =>
@@ -438,9 +641,6 @@ namespace DA6.Api.Migrations
                 {
                     b.Property<Guid>("MaQuan")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ChungLoaiMaCL")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("DaiQuan")
@@ -550,9 +750,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaQuan");
 
-                    b.HasIndex("ChungLoaiMaCL");
-
-                    b.ToTable("Quans");
+                    b.ToTable("quans");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.QuyTrinhChiTiet", b =>
@@ -600,7 +798,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaQuyTrinhChiTiet");
 
-                    b.ToTable("QuyTrinhChiTiets");
+                    b.ToTable("quytrinhchitiets");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.QuyTrinhSanPham", b =>
@@ -633,13 +831,26 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaQuyTrinhSanPham");
 
-                    b.ToTable("QuyTrinhSanPhams");
+                    b.ToTable("quytrinhsanphams");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.ThanhPhanVai", b =>
                 {
-                    b.Property<string>("MaThanhPhanVai")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("MaThanhPhanVai")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("TenThanhPhanVai")
                         .IsRequired()
@@ -647,16 +858,131 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaThanhPhanVai");
 
-                    b.ToTable("ThanhPhanVais");
+                    b.ToTable("thanhphanvais");
+                });
+
+            modelBuilder.Entity("DA6.Api.Entities.Vest", b =>
+                {
+                    b.Property<Guid>("MaVest")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<float>("DaiAo")
+                        .HasColumnType("float");
+
+                    b.Property<float>("DaiTay")
+                        .HasColumnType("float");
+
+                    b.Property<float>("KhoVai1")
+                        .HasColumnType("float");
+
+                    b.Property<float>("KhoVai2")
+                        .HasColumnType("float");
+
+                    b.Property<float>("KhoVai3")
+                        .HasColumnType("float");
+
+                    b.Property<float>("KhoVaiLot1")
+                        .HasColumnType("float");
+
+                    b.Property<float>("KhoVaiLot2")
+                        .HasColumnType("float");
+
+                    b.Property<float>("KhoVaiLot3")
+                        .HasColumnType("float");
+
+                    b.Property<float>("KhoanPhiKhac")
+                        .HasColumnType("float");
+
+                    b.Property<string>("KieuCo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("KieuNep")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("KieuTay")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("KieuThanSau")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("KieuThanTruoc")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("KieuTuiNguc")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("KieuTuiSuon")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("KieuVe")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<float>("LoiNhuanDuKien")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("MaCL")
+                        .HasColumnType("char(36)");
+
+                    b.Property<float>("MucLuongKyVong")
+                        .HasColumnType("float");
+
+                    b.Property<float>("PhuPhi")
+                        .HasColumnType("float");
+
+                    b.Property<int>("SoLaoDongTrenDayTruyen")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoSanPhanTrenSoDo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ThanhPhanVai1")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ThanhPhanVai2")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ThanhPhanVai3")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ThanhPhanVaiLot1")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ThanhPhanVaiLot2")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ThanhPhanVaiLot3")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<float>("VongGau")
+                        .HasColumnType("float");
+
+                    b.Property<float>("VongNguc")
+                        .HasColumnType("float");
+
+                    b.HasKey("MaVest");
+
+                    b.ToTable("vets");
                 });
 
             modelBuilder.Entity("DA6.Core.Entities.Ao", b =>
                 {
                     b.Property<Guid>("MaA")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ChungLoaiMaCL")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("CreatedBy")
@@ -772,9 +1098,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaA");
 
-                    b.HasIndex("ChungLoaiMaCL");
-
-                    b.ToTable("Aos");
+                    b.ToTable("aos");
                 });
 
             modelBuilder.Entity("DA6.Core.Entities.ChungLoai", b =>
@@ -807,7 +1131,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaCL");
 
-                    b.ToTable("ChungLoais");
+                    b.ToTable("chungloais");
                 });
 
             modelBuilder.Entity("DA6.Core.Entities.LoaiTrangPhuc", b =>
@@ -838,40 +1162,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaTP");
 
-                    b.ToTable("LoaiTrangPhucs");
-                });
-
-            modelBuilder.Entity("DA6.Api.Entities.JacKet", b =>
-                {
-                    b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
-                        .WithMany()
-                        .HasForeignKey("ChungLoaiMaCL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChungLoai");
-                });
-
-            modelBuilder.Entity("DA6.Api.Entities.Quan", b =>
-                {
-                    b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
-                        .WithMany()
-                        .HasForeignKey("ChungLoaiMaCL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChungLoai");
-                });
-
-            modelBuilder.Entity("DA6.Core.Entities.Ao", b =>
-                {
-                    b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
-                        .WithMany()
-                        .HasForeignKey("ChungLoaiMaCL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChungLoai");
+                    b.ToTable("loaitrangphucs");
                 });
 #pragma warning restore 612, 618
         }

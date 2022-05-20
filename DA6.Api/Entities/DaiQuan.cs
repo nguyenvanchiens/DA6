@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Api.Entities
 {
+    [Table("daiquans")]
     public class DaiQuan: BaseClass
     {
         [Key]

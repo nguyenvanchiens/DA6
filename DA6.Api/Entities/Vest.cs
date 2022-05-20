@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Api.Entities
 {
+    [Table("vets")]
     public class Vest
     {
         /// <summary>
@@ -17,9 +18,7 @@ namespace DA6.Api.Entities
         /// Mã chủng loại
         /// </summary>
         /// 
-        [ForeignKey("MaCL")]
         public Guid MaCL { get; set; }
-        public ChungLoai ChungLoai { get; set; }
         /// <summary>
         /// Kiểu nẹp (Tròn, vuông)
         /// </summary>

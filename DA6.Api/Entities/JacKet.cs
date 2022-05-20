@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Api.Entities
 {
+    [Table("jackets")]
     public class JacKet
     {
         [Key]
@@ -13,9 +14,7 @@ namespace DA6.Api.Entities
         /// Mã chủng loại
         /// </summary>
         /// 
-        [ForeignKey("MaCL")]
         public Guid MaCL { get; set; }
-        public ChungLoai ChungLoai { get; set; }
         /// <summary>
         /// Ruột bằng bông/bằng lông (Lông vũ; Bông vón; Bông tấm)
         /// </summary>

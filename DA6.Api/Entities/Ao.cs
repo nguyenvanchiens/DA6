@@ -5,6 +5,7 @@ using static DA6.Core.Enums.EnumsAo;
 
 namespace DA6.Core.Entities
 {
+    [Table("aos")]
     public class Ao : BaseClass
     {
         /// <summary>
@@ -17,9 +18,7 @@ namespace DA6.Core.Entities
         /// Mã chủng loại
         /// </summary>
         /// 
-        [ForeignKey("MaCL")]
         public Guid MaCL { get; set; }
-        public ChungLoai ChungLoai { get; set; }
         /// <summary>
         /// Kiểu tay (ngắn, dài, không tay, bổ dọc, bổ ngang)
         /// </summary>

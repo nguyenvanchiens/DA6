@@ -43,16 +43,13 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaDaiQuan");
 
-                    b.ToTable("DaiQuans");
+                    b.ToTable("daiquans");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.JacKet", b =>
                 {
                     b.Property<Guid>("MaJket")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ChungLoaiMaCL")
                         .HasColumnType("char(36)");
 
                     b.Property<float>("DaiAo")
@@ -169,9 +166,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaJket");
 
-                    b.HasIndex("ChungLoaiMaCL");
-
-                    b.ToTable("JacKets");
+                    b.ToTable("jackets");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCap", b =>
@@ -198,7 +193,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuCap");
 
-                    b.ToTable("KieuCaps");
+                    b.ToTable("kieucaps");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCo", b =>
@@ -225,7 +220,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuCo");
 
-                    b.ToTable("KieuCos");
+                    b.ToTable("kieucos");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCuaQuan", b =>
@@ -252,7 +247,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuCuaQuan");
 
-                    b.ToTable("KieuCuaQuans");
+                    b.ToTable("kieucuaquans");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuCuaTay", b =>
@@ -279,7 +274,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuCuaTay");
 
-                    b.ToTable("KieuCuaTays");
+                    b.ToTable("kieucuatays");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuGau", b =>
@@ -306,7 +301,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuGau");
 
-                    b.ToTable("KieuGaus");
+                    b.ToTable("kieugaus");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuNep", b =>
@@ -333,7 +328,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuNep");
 
-                    b.ToTable("KieuNeps");
+                    b.ToTable("kieuneps");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuQuan", b =>
@@ -360,7 +355,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuQuan");
 
-                    b.ToTable("KieuQuans");
+                    b.ToTable("kieuquans");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTay", b =>
@@ -387,7 +382,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTay");
 
-                    b.ToTable("KieuTays");
+                    b.ToTable("kieutays");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuThanSau", b =>
@@ -414,7 +409,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuThanSau");
 
-                    b.ToTable("KieuThanSaus");
+                    b.ToTable("kieuthansaus");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuThanTruoc", b =>
@@ -441,7 +436,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuThanTruoc");
 
-                    b.ToTable("KieuThanTruocs");
+                    b.ToTable("kieuthantruocs");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTui", b =>
@@ -468,7 +463,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTui");
 
-                    b.ToTable("KieuTuis");
+                    b.ToTable("kieutuis");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiGoi", b =>
@@ -495,7 +490,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTuiGoi");
 
-                    b.ToTable("KieuTuiGois");
+                    b.ToTable("kieutuigois");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiSau", b =>
@@ -522,7 +517,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTuiSau");
 
-                    b.ToTable("KieuTuiSaus");
+                    b.ToTable("kieutuisaus");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuTuiTruoc", b =>
@@ -549,7 +544,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuTuiTruoc");
 
-                    b.ToTable("KieuTuiTruocs");
+                    b.ToTable("kieutuitruocs");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.KieuXe", b =>
@@ -576,7 +571,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaKieuXe");
 
-                    b.ToTable("KieuXes");
+                    b.ToTable("kieuxes");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.LoaiVai", b =>
@@ -602,7 +597,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaVai");
 
-                    b.ToTable("LoaiVais");
+                    b.ToTable("loaivais");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.NguoiDung", b =>
@@ -644,9 +639,6 @@ namespace DA6.Api.Migrations
                 {
                     b.Property<Guid>("MaQuan")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ChungLoaiMaCL")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("DaiQuan")
@@ -756,9 +748,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaQuan");
 
-                    b.HasIndex("ChungLoaiMaCL");
-
-                    b.ToTable("Quans");
+                    b.ToTable("quans");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.QuyTrinhChiTiet", b =>
@@ -806,7 +796,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaQuyTrinhChiTiet");
 
-                    b.ToTable("QuyTrinhChiTiets");
+                    b.ToTable("quytrinhchitiets");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.QuyTrinhSanPham", b =>
@@ -839,7 +829,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaQuyTrinhSanPham");
 
-                    b.ToTable("QuyTrinhSanPhams");
+                    b.ToTable("quytrinhsanphams");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.ThanhPhanVai", b =>
@@ -866,16 +856,13 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaThanhPhanVai");
 
-                    b.ToTable("ThanhPhanVais");
+                    b.ToTable("thanhphanvais");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.Vest", b =>
                 {
                     b.Property<Guid>("MaVest")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ChungLoaiMaCL")
                         .HasColumnType("char(36)");
 
                     b.Property<float>("DaiAo")
@@ -987,18 +974,13 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaVest");
 
-                    b.HasIndex("ChungLoaiMaCL");
-
-                    b.ToTable("Vests");
+                    b.ToTable("vets");
                 });
 
             modelBuilder.Entity("DA6.Core.Entities.Ao", b =>
                 {
                     b.Property<Guid>("MaA")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("ChungLoaiMaCL")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("CreatedBy")
@@ -1114,9 +1096,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaA");
 
-                    b.HasIndex("ChungLoaiMaCL");
-
-                    b.ToTable("Aos");
+                    b.ToTable("aos");
                 });
 
             modelBuilder.Entity("DA6.Core.Entities.ChungLoai", b =>
@@ -1149,7 +1129,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaCL");
 
-                    b.ToTable("ChungLoais");
+                    b.ToTable("chungloais");
                 });
 
             modelBuilder.Entity("DA6.Core.Entities.LoaiTrangPhuc", b =>
@@ -1180,51 +1160,7 @@ namespace DA6.Api.Migrations
 
                     b.HasKey("MaTP");
 
-                    b.ToTable("LoaiTrangPhucs");
-                });
-
-            modelBuilder.Entity("DA6.Api.Entities.JacKet", b =>
-                {
-                    b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
-                        .WithMany()
-                        .HasForeignKey("ChungLoaiMaCL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChungLoai");
-                });
-
-            modelBuilder.Entity("DA6.Api.Entities.Quan", b =>
-                {
-                    b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
-                        .WithMany()
-                        .HasForeignKey("ChungLoaiMaCL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChungLoai");
-                });
-
-            modelBuilder.Entity("DA6.Api.Entities.Vest", b =>
-                {
-                    b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
-                        .WithMany()
-                        .HasForeignKey("ChungLoaiMaCL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChungLoai");
-                });
-
-            modelBuilder.Entity("DA6.Core.Entities.Ao", b =>
-                {
-                    b.HasOne("DA6.Core.Entities.ChungLoai", "ChungLoai")
-                        .WithMany()
-                        .HasForeignKey("ChungLoaiMaCL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChungLoai");
+                    b.ToTable("loaitrangphucs");
                 });
 #pragma warning restore 612, 618
         }
