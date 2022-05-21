@@ -12,7 +12,7 @@ namespace DA6.Api.Entities
         /// </summary>
         /// 
         [Key]
-        public Guid MaQuyTrinhChiTiet { get; set; }
+        public string MaQuyTrinhChiTiet { get; set; }
         public int STT { get; set; }
         /// <summary>
         /// Nội dung bước

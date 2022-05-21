@@ -17,8 +17,10 @@ namespace DA6.Api.Migrations
                 name: "aos",
                 columns: table => new
                 {
-                    MaA = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    MaCL = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaA = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    MaCL = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KieuTay = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     KieuCuaTay = table.Column<string>(type: "longtext", nullable: false)
@@ -76,12 +78,15 @@ namespace DA6.Api.Migrations
                 name: "chungloais",
                 columns: table => new
                 {
-                    MaCL = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaCL = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Ten = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     MoTa = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Kieu = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ParenId = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedBy = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -121,8 +126,10 @@ namespace DA6.Api.Migrations
                 name: "jackets",
                 columns: table => new
                 {
-                    MaJket = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    MaCL = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaJket = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    MaCL = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Ruot = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     KieuChan = table.Column<string>(type: "longtext", nullable: false)
@@ -496,7 +503,8 @@ namespace DA6.Api.Migrations
                 name: "loaitrangphucs",
                 columns: table => new
                 {
-                    MaTP = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaTP = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Ten = table.Column<string>(type: "NVARCHAR(50)", maxLength: 50, nullable: true),
                     MoTa = table.Column<string>(type: "NVARCHAR(100)", maxLength: 100, nullable: true),
                     CreatedBy = table.Column<string>(type: "longtext", nullable: true)
@@ -516,7 +524,8 @@ namespace DA6.Api.Migrations
                 name: "loaivais",
                 columns: table => new
                 {
-                    MaVai = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaVai = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     TenVai = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ThanhPhan = table.Column<string>(type: "longtext", nullable: false)
@@ -560,8 +569,10 @@ namespace DA6.Api.Migrations
                 name: "quans",
                 columns: table => new
                 {
-                    MaQuan = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    MaCL = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaQuan = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    MaCL = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KieuQuan = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     KieuCap = table.Column<string>(type: "longtext", nullable: false)
@@ -617,7 +628,8 @@ namespace DA6.Api.Migrations
                 name: "quytrinhchitiets",
                 columns: table => new
                 {
-                    MaQuyTrinhChiTiet = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaQuyTrinhChiTiet = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     STT = table.Column<int>(type: "int", nullable: false),
                     NoiDungBuoc = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -646,9 +658,11 @@ namespace DA6.Api.Migrations
                 name: "quytrinhsanphams",
                 columns: table => new
                 {
-                    MaQuyTrinhSanPham = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaQuyTrinhSanPham = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     STT = table.Column<int>(type: "int", nullable: false),
-                    MaSanPham = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaSanPham = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     TenQuyTrinh = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedBy = table.Column<string>(type: "longtext", nullable: true)
@@ -689,8 +703,10 @@ namespace DA6.Api.Migrations
                 name: "vets",
                 columns: table => new
                 {
-                    MaVest = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    MaCL = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    MaVest = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    MaCL = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     KieuNep = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     KieuVe = table.Column<string>(type: "longtext", nullable: false)

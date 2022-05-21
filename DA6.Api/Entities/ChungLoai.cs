@@ -13,7 +13,7 @@ namespace DA6.Core.Entities
         /// </summary>
         /// 
         [Key]
-        public Guid MaCL { get; set; }
+        public string MaCL { get; set; }
         /// <summary>
         /// Tên chủng loại
         /// </summary>
@@ -31,5 +31,7 @@ namespace DA6.Core.Entities
         /// vest (Vest 1 lớp,Vest 1.5 lớp,Vest 2 lớp))
         /// </summary>
         public string Kieu { get; set; }
+
+        public string ParenId { get; set; }
     }
 }

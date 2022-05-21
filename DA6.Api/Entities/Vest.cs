@@ -13,12 +13,12 @@ namespace DA6.Api.Entities
         /// </summary>
         /// 
         [Key]
-        public Guid MaVest { get; set; }
+        public string MaVest { get; set; }
         /// <summary>
         /// Mã chủng loại
         /// </summary>
         /// 
-        public Guid MaCL { get; set; }
+        public string MaCL { get; set; }
         /// <summary>
         /// Kiểu nẹp (Tròn, vuông)
         /// </summary>

@@ -29,11 +29,12 @@ namespace DA6.Api.Controllers
                 else
                 {
                     var chungloai = new ChungLoai();
-                    chungloai.MaCL = Guid.NewGuid();
+                    chungloai.MaCL = chungLoai.MaCL;
                     chungloai.Ten = chungLoai.Ten;
                     chungloai.MoTa = chungLoai.MoTa;
                     chungloai.Kieu = chungLoai.Kieu;
                     chungLoai.CreatedDate = DateTime.Now;
+                    chungLoai.ParenId = chungLoai.ParenId;
                     _context.ChungLoais.Add(chungloai);
                     var result = _context.SaveChanges();
                     return Ok(new { data = result, status = 201 });
@@ -45,13 +46,13 @@ namespace DA6.Api.Controllers
             }
         }
         [HttpGet("{Id}")]
-        public IActionResult Get(Guid Id)
+        public IActionResult Get(string Id)
         {
             var result = _context.ChungLoais.Find(Id);
             return Ok(new { data= result});
         }
         [HttpDelete("{Id}")]
-        public IActionResult Delete(Guid Id)
+        public IActionResult Delete(string Id)
         {
             try
             {
@@ -68,7 +69,7 @@ namespace DA6.Api.Controllers
           
         }
         [HttpPut]
-        public IActionResult Update(Guid Id, [FromBody] ChungLoai chungLoai)
+        public IActionResult Update(string Id, [FromBody] ChungLoai chungLoai)
         {
             try
             {
@@ -83,6 +84,7 @@ namespace DA6.Api.Controllers
                     entity.MoTa = chungLoai.MoTa;
                     entity.Kieu = chungLoai.Kieu;
                     entity.ModifiedDate = DateTime.Now;
+                    entity.ParenId = chungLoai.ParenId;
                     _context.ChungLoais.Update(entity);
                     var res = _context.SaveChanges();
                     return Ok(new { data = res, status = 201 });

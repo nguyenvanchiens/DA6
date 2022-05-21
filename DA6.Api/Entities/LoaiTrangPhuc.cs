@@ -11,7 +11,7 @@ namespace DA6.Core.Entities
         /// </summary>
         /// 
         [Key]
-        public Guid MaTP { get; set; }
+        public string MaTP { get; set; }
         /// <summary>
         /// Tên loại trang phục
         /// </summary>

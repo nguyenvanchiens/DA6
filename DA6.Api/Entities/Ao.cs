@@ -13,12 +13,12 @@ namespace DA6.Core.Entities
         /// </summary>
         /// 
         [Key]
-        public Guid MaA { get; set; }
+        public string MaA { get; set; }
         /// <summary>
         /// Mã chủng loại
         /// </summary>
         /// 
-        public Guid MaCL { get; set; }
+        public string MaCL { get; set; }
         /// <summary>
         /// Kiểu tay (ngắn, dài, không tay, bổ dọc, bổ ngang)
         /// </summary>

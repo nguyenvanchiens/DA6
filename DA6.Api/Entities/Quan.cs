@@ -17,12 +17,12 @@ namespace DA6.Api.Entities
         /// </summary>
         /// 
         [Key]
-        public Guid MaQuan { get; set; }
+        public string MaQuan { get; set; }
         /// <summary>
         /// Mã chủng loại
         /// </summary>
         /// 
-        public Guid MaCL { get; set; }
+        public string MaCL { get; set; }
         /// <summary>
         /// Kiểu quần (Dài; Lỡ; Sooc)
         /// </summary>

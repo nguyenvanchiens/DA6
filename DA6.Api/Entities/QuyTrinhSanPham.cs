@@ -12,9 +12,9 @@ namespace DA6.Api.Entities
         /// </summary>
         /// 
         [Key]
-        public Guid MaQuyTrinhSanPham { get; set; }
+        public string MaQuyTrinhSanPham { get; set; }
         public int STT { get; set; }
-        public Guid MaSanPham { get; set; }
+        public string MaSanPham { get; set; }
         public string TenQuyTrinh { get; set; }
     }
 }

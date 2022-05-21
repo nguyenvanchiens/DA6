@@ -9,12 +9,12 @@ namespace DA6.Api.Entities
     public class JacKet
     {
         [Key]
-        public Guid MaJket { get; set; }
+        public string MaJket { get; set; }
         /// <summary>
         /// Mã chủng loại
         /// </summary>
         /// 
-        public Guid MaCL { get; set; }
+        public string MaCL { get; set; }
         /// <summary>
         /// Ruột bằng bông/bằng lông (Lông vũ; Bông vón; Bông tấm)
         /// </summary>

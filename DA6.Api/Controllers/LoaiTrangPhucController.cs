@@ -18,7 +18,7 @@ namespace DA6.Api.Controllers
             return Ok(new { data = res });
         }
         [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
+        public IActionResult Get(string id)
         {
             var res = _context.LoaiTrangPhucs.Find(id);
             return Ok(new { data = res });
@@ -34,9 +34,10 @@ namespace DA6.Api.Controllers
                     return Ok(new { msg = "Không thể bỏ trống các trường", status = 400 });
                 }
                 var entity = new LoaiTrangPhuc();
-                entity.MaTP = Guid.NewGuid();
+                entity.MaTP = model.MaTP;
                 entity.Ten = model.Ten;
                 entity.MoTa = model.MoTa;
+                entity.CreatedDate = DateTime.Now;
                 _context.LoaiTrangPhucs.Add(entity);
                 var result = _context.SaveChanges();
                 return Ok(new { data = result, status = 201 });
@@ -47,7 +48,7 @@ namespace DA6.Api.Controllers
             }
         }
         [HttpPut("{id}")]
-        public IActionResult Update(Guid id, [FromBody] LoaiTrangPhuc model)
+        public IActionResult Update(string id, [FromBody] LoaiTrangPhuc model)
         {
             try
             {
@@ -56,8 +57,10 @@ namespace DA6.Api.Controllers
                     return Ok(new { msg = "Không thể bỏ trống các trường", status = 400 });
                 }
                 var entity = _context.LoaiTrangPhucs.Find(id);
+                entity.MaTP = model.MaTP;
                 entity.Ten = model.Ten;
                 entity.MoTa = model.MoTa;
+                entity.ModifiedDate = DateTime.Now;
                 _context.LoaiTrangPhucs.Update(entity);
                 var result = _context.SaveChanges();
                 return Ok(new { data = result, status = 201 });
@@ -68,7 +71,7 @@ namespace DA6.Api.Controllers
             }
         }
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public IActionResult Delete(string id)
         {
             try
             {

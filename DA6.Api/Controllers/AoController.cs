@@ -29,7 +29,7 @@ namespace DA6.Api.Controllers
             }
         }
         [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
+        public IActionResult Get(string id)
         {
             try
             {
@@ -56,6 +56,7 @@ namespace DA6.Api.Controllers
                 {
                     return BadRequest("error");
                 }
+                model.CreatedDate = DateTime.Now;
                 _context.Aos.Add(model);
                 var reuslt = _context.SaveChanges();
 
@@ -69,7 +70,7 @@ namespace DA6.Api.Controllers
         }
 
         [HttpPost("{id}")]
-        public IActionResult Update(Guid id, [FromBody] Ao model)
+        public IActionResult Update(string id, [FromBody] Ao model)
         {
             try
             {
@@ -78,6 +79,7 @@ namespace DA6.Api.Controllers
                 {
                     return BadRequest("error");
                 }
+                entity.MaA = model.MaA;
                 entity.ModifiedDate = DateTime.Now;
                 entity.MaCL = model.MaCL;
                 entity.KieuTay = model.KieuTay;
@@ -122,7 +124,7 @@ namespace DA6.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public IActionResult Delete(string id)
         {
             try
             {
