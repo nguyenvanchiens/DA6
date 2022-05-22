@@ -41,6 +41,7 @@ namespace DA6.Core.Data
         public DbSet<KieuTuiGoi> KieuTuiGois { get; set; }
         public DbSet<KieuCuaQuan> KieuCuaQuans { get; set; }
         public DbSet<DaiQuan> DaiQuans { get; set; }
+        public DbSet<Files> Files { get; set; }
         
        
     }
