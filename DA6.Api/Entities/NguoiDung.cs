@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Api.Entities
 {
-    [Table("NguoiDung")]
+    [Table("nguoidungs")]
     public class NguoiDung
     {
         [Key]
