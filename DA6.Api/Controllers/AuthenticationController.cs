@@ -1,4 +1,5 @@
 ﻿using DA6.Api.Common;
+using DA6.Api.ViewModel.Account;
 using DA6.Core.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -20,11 +21,11 @@ namespace DA6.Api.Controllers
             _config = config;
         }
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(string UserName, string PassWord, bool RememberMe)
+        public async Task<IActionResult> Login([FromBody]LoginViewModel model)
         {
             try
             {
-                var user = _context.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == UserName && x.MatKhau == PassWord);
+                var user = _context.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == model.UserName && x.MatKhau == model.PassWord);
                 if (user == null)
                 {
                     return Ok(new { StatusCode = 500, Message = "Tài khoản mật khẩu sai" });
@@ -38,12 +39,6 @@ namespace DA6.Api.Controllers
                         new Claim(ClaimTypes.Role,user.Quyen)
 
                     };
-                    //var identity = new ClaimsIdentity(Claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    //var principal = new ClaimsPrincipal(identity);
-                    //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties()
-                    //{
-                    //    IsPersistent = RememberMe
-                    //});
                     var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
                     var Token = new JwtSecurityToken(
                             _config["Tokens:Issuer"],
@@ -52,7 +47,14 @@ namespace DA6.Api.Controllers
                             expires: DateTime.Now.AddDays(30.0),
                             signingCredentials: new SigningCredentials(Key, SecurityAlgorithms.HmacSha256)
                     );
-                    return Ok(new JwtSecurityTokenHandler().WriteToken(Token));
+                    var result = new AccountRespont()
+                    {
+                        Token = new JwtSecurityTokenHandler().WriteToken(Token),
+                        Name = user.TenNguoiDung,
+                        Username = user.TaiKhoan,
+                        Role = user.Quyen
+                    };
+                    return Ok(result);
                 }
             }
             catch (Exception)

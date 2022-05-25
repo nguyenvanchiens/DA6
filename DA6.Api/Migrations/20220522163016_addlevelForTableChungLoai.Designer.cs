@@ -3,6 +3,7 @@ using System;
 using DA6.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DA6.Api.Migrations
 {
     [DbContext(typeof(DA6DbContext))]
-    partial class DA6DbContextModelSnapshot : ModelSnapshot
+    [Migration("20220522163016_addlevelForTableChungLoai")]
+    partial class addlevelForTableChungLoai
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -669,57 +671,6 @@ namespace DA6.Api.Migrations
                     b.ToTable("nguoidungs");
                 });
 
-            modelBuilder.Entity("DA6.Api.Entities.OptionAo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("MaAo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("MaKieuCo")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaKieuCuaTay")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaKieuGau")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaKieuNep")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaKieuTay")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaKieuThanSau")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaKieuThanTruoc")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaKieuTui")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaKieuXe")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaThanhPhanVai1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaThanhPhanVai2")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaThanhPhanVai3")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("optionaos");
-                });
-
             modelBuilder.Entity("DA6.Api.Entities.Quan", b =>
                 {
                     b.Property<string>("MaQuan")
@@ -1211,6 +1162,7 @@ namespace DA6.Api.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("ParenId")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Ten")

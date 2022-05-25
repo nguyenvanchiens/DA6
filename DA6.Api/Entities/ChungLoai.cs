@@ -30,8 +30,9 @@ namespace DA6.Core.Entities
         /// Jacket 2 lớp, jacket 2 lớp, jacket 3 lớp, jacket 5 lớp); 
         /// vest (Vest 1 lớp,Vest 1.5 lớp,Vest 2 lớp))
         /// </summary>
-        public string Kieu { get; set; }
+        public string? Kieu { get; set; }
 
-        public string ParenId { get; set; }
+        public string? ParenId { get; set; }
+        public int Level { get; set; }
     }
 }

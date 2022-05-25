@@ -17,13 +17,13 @@ namespace DA6.Api.Controllers
             var res = _context.LoaiTrangPhucs.ToList();
             return Ok(new { data = res });
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(string id)
+        [HttpGet("get-by-id")]
+        public IActionResult Get([FromQuery] string id)
         {
             var res = _context.LoaiTrangPhucs.Find(id);
             return Ok(new { data = res });
         }
-        [HttpPost]
+        [HttpPost("Create")]
         public IActionResult Insert([FromBody] LoaiTrangPhuc model)
         {
             try
@@ -47,8 +47,8 @@ namespace DA6.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpPut("{id}")]
-        public IActionResult Update(string id, [FromBody] LoaiTrangPhuc model)
+        [HttpPut("update")]
+        public IActionResult Update([FromQuery] string id, [FromBody] LoaiTrangPhuc model)
         {
             try
             {
@@ -70,8 +70,8 @@ namespace DA6.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        [HttpDelete("delete")]
+        public IActionResult Delete([FromQuery] string id)
         {
             try
             {
@@ -97,6 +97,6 @@ namespace DA6.Api.Controllers
             }
             return true;
         }
-        
+
     }
 }

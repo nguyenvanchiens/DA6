@@ -1,4 +1,5 @@
-﻿using DA6.Core.Data;
+﻿using DA6.Api.ViewModel;
+using DA6.Core.Data;
 using DA6.Core.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,8 +29,8 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(string id)
+        [HttpGet("get-by-id")]
+        public IActionResult Get([FromQuery]string id)
         {
             try
             {
@@ -47,14 +48,19 @@ namespace DA6.Api.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult Create([FromBody] Ao model)
+        [HttpPost("Create")]
+        public async Task<IActionResult> Create([FromBody] Ao model)
         {
             try
             {
                 if (model == null)
                 {
                     return BadRequest("error");
+                }
+                var isvalid = await Validate(model);
+                if (!isvalid.isOk)
+                {
+                    return BadRequest(isvalid.Message);
                 }
                 model.CreatedDate = DateTime.Now;
                 _context.Aos.Add(model);
@@ -68,9 +74,42 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
+        private async Task<Responsive> Validate(Ao ao,bool isUpdate=false)
+        {
+            var message = "";
+            if(ao == null)
+            {
+                message = "Không thể bỏ trống dữ liệu";
+                return new Responsive(message);
+            }
+            if (ao.MaA == null)
+            {
+                message = "Không thể bỏ trống dữ liệu";
+                return new Responsive(message);
+            }
+            if (isUpdate == true)
+            {
+                var entity = _context.Aos.Find(ao.MaA);
+                if(entity!=null && entity.MaA != ao.MaA)
+                {
+                    message = "Mã áo đã tồn tại";
+                    return new Responsive(message);
+                }
+            }
+            if (isUpdate == false)
+            {
+                var entity = _context.Aos.Find(ao.MaA);
+                if (entity != null)
+                {
+                    message = "Mã áo đã tồn tại";
+                    return new Responsive(message);
+                }
+            }
+            return new Responsive("",true);
+        }
 
-        [HttpPost("{id}")]
-        public IActionResult Update(string id, [FromBody] Ao model)
+        [HttpPost("update")]
+        public async Task<IActionResult> Update([FromQuery]string id, [FromBody] Ao model)
         {
             try
             {
@@ -78,6 +117,11 @@ namespace DA6.Api.Controllers
                 if (entity == null)
                 {
                     return BadRequest("error");
+                }
+                var isValid = await Validate(model,true);
+                if (!isValid.isOk)
+                {
+                    return BadRequest(isValid.Message);
                 }
                 entity.MaA = model.MaA;
                 entity.ModifiedDate = DateTime.Now;
@@ -110,7 +154,6 @@ namespace DA6.Api.Controllers
                 entity.PhuPhi = model.PhuPhi;
                 entity.KhoanPhiKhac = model.KhoanPhiKhac;
                 entity.ModifiedBy = model.ModifiedBy;
-                
                 _context.Aos.Update(entity);
                 var result = _context.SaveChanges();
                 return Ok(result);
@@ -123,8 +166,8 @@ namespace DA6.Api.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        [HttpDelete("delete")]
+        public IActionResult Delete([FromQuery] string id)
         {
             try
             {

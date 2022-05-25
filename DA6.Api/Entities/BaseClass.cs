@@ -21,6 +21,6 @@
         /// Ngày sửa
         /// </summary>
 
-        public DateTime ModifiedDate { get; set; } = DateTime.Now;
+        public DateTime? ModifiedDate { get; set; } = DateTime.Now;
     }
 }

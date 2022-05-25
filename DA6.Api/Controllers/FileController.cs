@@ -46,7 +46,7 @@ namespace DA6.Api.Controllers
             return Ok(pageResult);
         }
         [HttpPost("importfile")]
-        public async Task<IActionResult> ImportFile(IFormFile file)
+        public async Task<IActionResult> ImportFile([FromForm]IFormFile file)
         {
 
             FileRespon result = new FileRespon();
@@ -54,15 +54,15 @@ namespace DA6.Api.Controllers
             {
                 result = await UploadFile(file);
             }
-
+            if (result.status == 400)
+            {
+                return Ok(result);
+            }
             var files = new Files();
             files.TenFile = result.fileName;
             files.Path = result.filePath;
             files.Size = result.size;
-            if (file == null)
-            {
-                return BadRequest();
-            }
+           
             _context.Files.Add(files);
             _context.SaveChanges();
             return Ok(files);
@@ -88,7 +88,7 @@ namespace DA6.Api.Controllers
             return new FileRespon();
         }
         
-        private bool deletefile(string fname)
+        private bool deletefile([FromQuery] string fname)
         {
             string _fileToBeDeleted = Path.Combine(Directory.GetCurrentDirectory(), @"Template", fname);
             if ((System.IO.File.Exists(_fileToBeDeleted)))
@@ -98,7 +98,7 @@ namespace DA6.Api.Controllers
             return true;
         }
         [HttpGet("downloadFile")]
-        public FileResult DownloadFile(string fileName)
+        public FileResult DownloadFile([FromQuery] string fileName)
         {
             //Build the File Path.
             string path = Path.Combine(Directory.GetCurrentDirectory(), @"Template", fileName);

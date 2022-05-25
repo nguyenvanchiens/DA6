@@ -34,7 +34,7 @@ builder.Services.AddAuthentication(options =>
     options.LogoutPath = "";
 });
 var app = builder.Build();
-
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

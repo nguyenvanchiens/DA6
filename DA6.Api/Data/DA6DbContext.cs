@@ -42,6 +42,7 @@ namespace DA6.Core.Data
         public DbSet<KieuCuaQuan> KieuCuaQuans { get; set; }
         public DbSet<DaiQuan> DaiQuans { get; set; }
         public DbSet<Files> Files { get; set; }
+        public DbSet<OptionAo> OptionAos { get; set; }
         
        
     }

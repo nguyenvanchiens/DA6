@@ -1,4 +1,5 @@
-﻿using DA6.Api.ViewModel.ChungLoai;
+﻿using DA6.Api.ViewModel;
+using DA6.Api.ViewModel.ChungLoai;
 using DA6.Core.Data;
 using DA6.Core.Entities;
 using Microsoft.AspNetCore.Http;
@@ -15,16 +16,17 @@ namespace DA6.Api.Controllers
         public IActionResult GetAll()
         {
             var result = _context.ChungLoais.ToList();
-            return Ok(new { data = result});
+            return Ok(new { data = result });
         }
         [HttpPost]
-        public IActionResult Insert([FromBody] ChungLoai chungLoai)
+        public async Task<IActionResult> Insert([FromBody] ChungLoai chungLoai)
         {
             try
             {
-                if (!Validate(chungLoai))
+                var isValid = await Validate(chungLoai);
+                if (!isValid.isOk)
                 {
-                    return BadRequest(new { msg = "Dữ liệu không thể để trống", status = 400 });
+                    return BadRequest(isValid.Message);
                 }
                 else
                 {
@@ -33,8 +35,9 @@ namespace DA6.Api.Controllers
                     chungloai.Ten = chungLoai.Ten;
                     chungloai.MoTa = chungLoai.MoTa;
                     chungloai.Kieu = chungLoai.Kieu;
-                    chungLoai.CreatedDate = DateTime.Now;
-                    chungLoai.ParenId = chungLoai.ParenId;
+                    chungloai.CreatedDate = DateTime.Now;
+                    chungloai.ParenId = chungLoai.ParenId;
+                    chungloai.Level = chungLoai.Level;
                     _context.ChungLoais.Add(chungloai);
                     var result = _context.SaveChanges();
                     return Ok(new { data = result, status = 201 });
@@ -45,14 +48,23 @@ namespace DA6.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet("{Id}")]
-        public IActionResult Get(string Id)
+        [HttpGet("get-by-id")]
+        public IActionResult Get([FromQuery] string Id)
         {
-            var result = _context.ChungLoais.Find(Id);
-            return Ok(new { data= result});
+            try
+            {
+                var result = _context.ChungLoais.Find(Id);
+                return Ok(new { data = result });
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+
         }
-        [HttpDelete("{Id}")]
-        public IActionResult Delete(string Id)
+        [HttpDelete("delete")]
+        public IActionResult Delete([FromQuery] string Id)
         {
             try
             {
@@ -66,16 +78,17 @@ namespace DA6.Api.Controllers
 
                 return BadRequest(e.Message);
             }
-          
+
         }
-        [HttpPut]
-        public IActionResult Update(string Id, [FromBody] ChungLoai chungLoai)
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromQuery] string Id, [FromBody] ChungLoai chungLoai)
         {
             try
             {
-                if (!Validate(chungLoai))
+                var isValid = await Validate(chungLoai,true);
+                if (!isValid.isOk)
                 {
-                    return BadRequest(new { msg = "Dữ liệu không thể để trống", status = 400 });
+                    return BadRequest(isValid.Message);
                 }
                 else
                 {
@@ -85,6 +98,7 @@ namespace DA6.Api.Controllers
                     entity.Kieu = chungLoai.Kieu;
                     entity.ModifiedDate = DateTime.Now;
                     entity.ParenId = chungLoai.ParenId;
+                    entity.Level = chungLoai.Level;
                     _context.ChungLoais.Update(entity);
                     var res = _context.SaveChanges();
                     return Ok(new { data = res, status = 201 });
@@ -96,13 +110,57 @@ namespace DA6.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
-        private bool Validate(ChungLoai model)
+        [HttpGet("get-level")]
+        public IActionResult GetLevel([FromQuery] int level)
         {
-            if(model == null|| model.Ten == "" || model.Kieu == "" || model.MoTa == "")
+            try
             {
-                return false;
+                var result = _context.ChungLoais.Where(x => x.Level == level).ToList();
+                if (result.Count > 0)
+                {
+                    return Ok(result);
+                }
+                return BadRequest();
             }
-            return true;
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+
+        }
+        private async Task<Responsive> Validate(ChungLoai chungLoai, bool isUpdate = false)
+        {
+            var message = "";
+            if (chungLoai == null)
+            {
+                message = "Không thể bỏ trống dữ liệu";
+                return new Responsive(message);
+            }
+            if (chungLoai.MaCL == null)
+            {
+                message = "Không thể bỏ trống dữ liệu";
+                return new Responsive(message);
+            }
+            if (isUpdate==true)
+            {
+                var entity = _context.ChungLoais.Find(chungLoai.MaCL);
+                if (entity != null && entity.MaCL != entity.MaCL)
+                {
+                    message = "Mã chủng loại đã tồn tại";
+                    return new Responsive(message);
+                }
+            }
+            if (isUpdate==false)
+            {
+                var entity = _context.ChungLoais.Find(chungLoai.MaCL);
+                if (entity != null)
+                {
+                    message = "Mã chủng loại đã tồn tại";
+                    return new Responsive(message);
+                }
+            }
+            return new Responsive("", true);
         }
     }
 }
