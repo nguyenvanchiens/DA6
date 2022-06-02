@@ -43,7 +43,10 @@ namespace DA6.Core.Data
         public DbSet<DaiQuan> DaiQuans { get; set; }
         public DbSet<Files> Files { get; set; }
         public DbSet<OptionAo> OptionAos { get; set; }
-        public DbSet<TieuChuanDauRa> TieuChuanDauRas { get; set; }
+        public DbSet<OptionDauRa> OptionDaus { get; set; }
+        public DbSet<PhuThuoc> PhuThuocs { get; set; }
+        public DbSet<DauRa> DauRas { get; set; }
+        public DbSet<QuanLyDauRa> QuanLyDauRas { get; set; }
         
        
     }

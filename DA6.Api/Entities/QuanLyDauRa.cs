@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DA6.Api.Entities
 {
-    [Table("tieuchuandauras")]
-    public class TieuChuanDauRa
+    [Table("quanlydauras")]
+    public class QuanLyDauRa
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Ma { get; set; }
-        public string Ten { get; set; }
+        public int Id { get; set; }
+        public string TenDauRa { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using DA6.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DA6.Api.Migrations
 {
     [DbContext(typeof(DA6DbContext))]
-    partial class DA6DbContextModelSnapshot : ModelSnapshot
+    [Migration("20220602151922_addTable")]
+    partial class addTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,9 +52,6 @@ namespace DA6.Api.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("QuanLyDauRaId")
                         .HasColumnType("int");
 
                     b.Property<string>("TenOption")
@@ -1009,6 +1008,21 @@ namespace DA6.Api.Migrations
                     b.HasKey("MaThanhPhanVai");
 
                     b.ToTable("thanhphanvais");
+                });
+
+            modelBuilder.Entity("DA6.Api.Entities.TieuChuanDauRa", b =>
+                {
+                    b.Property<int>("Ma")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Ma");
+
+                    b.ToTable("tieuchuandauras");
                 });
 
             modelBuilder.Entity("DA6.Api.Entities.Vest", b =>
