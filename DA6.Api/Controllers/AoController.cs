@@ -1,4 +1,5 @@
-﻿using DA6.Api.ViewModel;
+﻿using DA6.Api.Entities;
+using DA6.Api.ViewModel;
 using DA6.Core.Data;
 using DA6.Core.Entities;
 using Microsoft.AspNetCore.Http;
@@ -243,5 +244,70 @@ namespace DA6.Api.Controllers
         //    return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         //        fileName);
         //}
+        [HttpPost("create-option-ao")]
+        public IActionResult CreateOptionAo([FromBody] OptionAo optionAo)
+        {
+            try
+            {
+                _context.OptionAos.Add(optionAo);
+                var ressult = _context.SaveChanges();
+                return Ok(ressult);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        [HttpGet("get-option-ao")]
+        public IActionResult GetOptionAo([FromQuery] string MaAo)
+        {
+            try
+            {
+                var option = _context.OptionAos.FirstOrDefault(x => x.MaAo == MaAo);
+                return Ok(option);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpPut("update-option-ao")]
+        public IActionResult UpdateOptionAo([FromQuery]string MaAo,[FromBody]OptionAo model)
+        {
+            try
+            {
+                var option = _context.OptionAos.Find(MaAo);
+                if (option == null)
+                {
+                    return BadRequest("Can not find by Id");
+                }
+                option.MaKieuTay = model.MaKieuTay;
+                option.MaKieuGau = model.MaKieuGau;
+                option.MaKieuGau = model.MaKieuGau;
+                option.MaKieuCo = model.MaKieuCo;
+                option.MaKieuTui = model.MaKieuTui;
+                option.MaKieuNep = model.MaKieuNep;
+                option.MaKieuThanTruoc = model.MaKieuThanTruoc;
+                option.MaKieuXe = model.MaKieuXe;
+                option.MaKieuThanSau = model.MaKieuThanSau;
+                option.MaThanhPhanVai1 = model.MaThanhPhanVai1;
+                option.MaThanhPhanVai2 = model.MaThanhPhanVai2;
+                option.MaThanhPhanVai3 = model.MaThanhPhanVai3;
+                _context.OptionAos.Update(option);
+                var result = _context.SaveChanges();
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
+
+   
+
 }
