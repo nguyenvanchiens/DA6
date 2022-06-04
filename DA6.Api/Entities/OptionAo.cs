@@ -10,6 +10,7 @@ namespace DA6.Api.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string MaAo { get; set; }
+        public string MaCL { get; set; }
         public int MaKieuTay { get; set; }
         public int MaKieuCuaTay { get; set; }
         public int MaKieuGau { get; set; }

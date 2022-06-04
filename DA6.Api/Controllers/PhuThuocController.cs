@@ -9,5 +9,19 @@ namespace DA6.Api.Controllers
         public PhuThuocController(DA6DbContext context) : base(context)
         {
         }
+        [HttpGet("get-all-phu-thuoc")]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                var result = _context.PhuThuocs.ToList();
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

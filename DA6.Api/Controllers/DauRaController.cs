@@ -9,5 +9,19 @@ namespace DA6.Api.Controllers
         public DauRaController(DA6DbContext context) : base(context)
         {
         }
+        [HttpGet("get-all-dau-ra")]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                var result = _context.DauRas.ToList();
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
