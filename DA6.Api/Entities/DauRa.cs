@@ -9,7 +9,6 @@ namespace DA6.Api.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string TenOption { get; set; }
-        public int QuanLyDauRaId { get; set; }
+        public string Name { get; set; }
     }
 }

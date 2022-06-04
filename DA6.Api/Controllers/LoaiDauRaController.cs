@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace DA6.Api.Controllers
 {
 
-    public class QuanLyDauRaController : BaseController
+    public class LoaiDauRaController : BaseController
     {
-        public QuanLyDauRaController(DA6DbContext context) : base(context)
+        public LoaiDauRaController(DA6DbContext context) : base(context)
         {
         }
-        [HttpGet("get-all-quan-ly-dau-ra")]
+        [HttpGet("get-all-loai-dau-ra")]
         public IActionResult GetAll()
         {
             try
