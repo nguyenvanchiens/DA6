@@ -46,7 +46,7 @@ namespace DA6.Api.Controllers
             return Ok(pageResult);
         }
         [HttpPost("importfile")]
-        public async Task<IActionResult> ImportFile([FromForm]IFormFile file)
+        public async Task<IActionResult> ImportFile(IFormFile file)
         {
 
             FileRespon result = new FileRespon();

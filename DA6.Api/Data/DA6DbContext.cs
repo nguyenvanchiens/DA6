@@ -47,6 +47,7 @@ namespace DA6.Core.Data
         public DbSet<PhuThuoc> PhuThuocs { get; set; }
         public DbSet<DauRa> DauRas { get; set; }
         public DbSet<LoaiDauRa> QuanLyDauRas { get; set; }
+        public DbSet<SanPham> SanPhams { get; set; }
         
        
     }

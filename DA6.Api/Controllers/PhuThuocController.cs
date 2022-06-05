@@ -59,6 +59,7 @@ namespace DA6.Api.Controllers
                 result.MaOptionDaura = model.MaOptionDaura;
                 result.MaDauRa = model.MaDauRa;
                 result.MaLoaiDauRa = model.MaLoaiDauRa;
+                result.MaSanPham = model.MaSanPham;
                 _context.PhuThuocs.Update(result);
                 var res = _context.SaveChanges();
                 return Ok(res);
