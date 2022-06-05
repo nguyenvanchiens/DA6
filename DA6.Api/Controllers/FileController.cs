@@ -24,7 +24,7 @@ namespace DA6.Api.Controllers
                 query = query.Where(x => x.TenFile.Contains(request.textSearch));
             }
             int totoRecord = await query.CountAsync();
-            var result = await query.Skip((request.pageIndex - 1) * request.pageSize).Take(request.pageSize)
+            var result = await query
                 .Select(x => new Files()
                 {
                     MaFile = x.MaFile,
@@ -39,8 +39,6 @@ namespace DA6.Api.Controllers
             var pageResult = new PageResult<Files>()
             {
                 items = result,
-                pageIndex = request.pageIndex,
-                pageSize = request.pageSize,
                 totalRecord = totoRecord
             };
             return Ok(pageResult);
