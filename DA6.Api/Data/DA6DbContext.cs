@@ -48,6 +48,8 @@ namespace DA6.Core.Data
         public DbSet<DauRa> DauRas { get; set; }
         public DbSet<LoaiDauRa> QuanLyDauRas { get; set; }
         public DbSet<SanPham> SanPhams { get; set; }
+        public DbSet<SanPhamLoaiDauRa> SanPhamLoaiDauRas { get; set; }
+        public DbSet<LoaiDauRaDauRa> LoaiDauRaDauRas { get; set; }
         
        
     }

@@ -3,6 +3,7 @@ using System;
 using DA6.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DA6.Api.Migrations
 {
     [DbContext(typeof(DA6DbContext))]
-    partial class DA6DbContextModelSnapshot : ModelSnapshot
+    [Migration("20220612152128_updateTableSanphamloaidaura")]
+    partial class updateTableSanphamloaidaura
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
