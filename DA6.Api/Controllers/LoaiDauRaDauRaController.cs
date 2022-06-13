@@ -12,18 +12,19 @@ namespace DA6.Api.Controllers
         {
         }
         [HttpGet("get-dau-ra-loai-dau-ra")]
-        public IActionResult Get([FromQuery]int MaDauRa)
+        public IActionResult Get([FromQuery]int LoaiDauRa)
         {
             try
             {
-                var result = (from dr in _context.DauRas join ldr in _context.LoaiDauRaDauRas
-                             on dr.Id equals ldr.MaDauRa
-                             where dr.Id == MaDauRa
-                             select new {dr,ldr}).Select(x=>new DauRaLoaiDauRaViewModel()
+                var result = (from ldr in _context.QuanLyDauRas join ldrdr in _context.LoaiDauRaDauRas
+                             on ldr.Id equals ldrdr.MaLoaiDauRa
+                             join dr in _context.DauRas on ldrdr.MaDauRa equals dr.Id
+                             where ldr.Id == LoaiDauRa
+                             select new {ldr,ldrdr,dr}).Select(x=>new DauRaLoaiDauRaViewModel()
                              {
                                  Id = x.ldr.Id,
-                                 MaDauRa = x.ldr.MaDauRa,
-                                 MaLoaiDauRa = x.ldr.MaLoaiDauRa,
+                                 MaDauRa = x.ldrdr.MaDauRa,
+                                 MaLoaiDauRa = x.ldrdr.MaLoaiDauRa,
                                  TenDauRa = x.dr.Name
                              }).ToList();
                 return Ok(result);
