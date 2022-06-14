@@ -18,6 +18,34 @@ namespace DA6.Api.Controllers
             var result = _context.ChungLoais.ToList();
             return Ok(new { data = result });
         }
+        [HttpGet("get-parent-tree-chung-loai")]
+        public IActionResult GetParentNode()
+        {
+            var chungloai = _context.ChungLoais.Select(x => new ChungLoaiViewModel()
+            {
+                MaCL = x.MaCL,
+                Ten = x.Ten,
+                ParenId = x.ParenId,
+                Level = x.Level
+            }).ToList();
+
+
+            List<ChungLoaiViewModel> result = new List<ChungLoaiViewModel>();
+            int count = chungloai.Where(x => x.ParenId == null).Count();
+            result = chungloai
+                            .Where(c => c.ParenId == null)
+                            .Select(c => new ChungLoaiViewModel() { MaCL = c.MaCL, Ten = c.Ten, ParenId = c.ParenId, Childrent = GetChildren(chungloai, c.MaCL) })
+                            .ToList();
+            return Ok(result);
+        }
+
+        public static List<ChungLoaiViewModel> GetChildren(List<ChungLoaiViewModel> chungloai, string parentId)
+        {
+            return chungloai
+                    .Where(c => c.ParenId == parentId)
+                    .Select(c => new ChungLoaiViewModel { MaCL = c.MaCL, Ten = c.Ten, ParenId = c.ParenId, Childrent = GetChildren(chungloai, c.MaCL) })
+                    .ToList();
+        }
         [HttpPost]
         public async Task<IActionResult> Insert([FromBody] ChungLoai chungLoai)
         {
