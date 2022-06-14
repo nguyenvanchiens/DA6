@@ -71,11 +71,6 @@ namespace DA6.Api.Controllers
             {
                 var fileName = Path.GetFileName(ufile.FileName);
                 var extension = Path.GetExtension(fileName);
-                //if (extension != ".doc")
-                //{
-                //    FileRespon result = new FileRespon();
-                //    return result;
-                //}
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"Template", fileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
@@ -105,13 +100,10 @@ namespace DA6.Api.Controllers
         [HttpGet("downloadFile")]
         public FileResult DownloadFile([FromQuery] string fileName)
         {
-            //Build the File Path.
             string path = Path.Combine(Directory.GetCurrentDirectory(), @"Template", fileName);
 
-            //Read the File data into Byte Array.
             byte[] bytes = System.IO.File.ReadAllBytes(path);
 
-            //Send the File to Download.
             return File(bytes, "application/octet-stream", fileName);
         }
     }

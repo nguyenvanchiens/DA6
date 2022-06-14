@@ -1,4 +1,5 @@
 ﻿using DA6.Api.Entities;
+using DA6.Api.ViewModel.Option;
 using DA6.Core.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,11 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.OptionDauRas.ToList();
+                var result = _context.OptionDauRas.Select(s => new OptionViewModel()
+                {
+                    Value = s.Id.ToString(),
+                    Lable = s.Name
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)

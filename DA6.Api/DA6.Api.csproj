@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Template\" />
+    <Folder Include="ViewModel\Option\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,4 +41,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ViewModel\Option\" />
+    <None Remove="Template\TCKT-C_PS1.doc" />
+  </ItemGroup>
 </Project>
