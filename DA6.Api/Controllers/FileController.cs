@@ -85,15 +85,22 @@ namespace DA6.Api.Controllers
             }
             return new FileRespon();
         }
-        
-        private bool deletefile([FromQuery] string fname)
+        [HttpDelete("delete-file")]
+        public IActionResult deletefile([FromQuery] int mafile)
         {
-            string _fileToBeDeleted = Path.Combine(Directory.GetCurrentDirectory(), @"Template", fname);
+            var file = _context.Files.Where(x=>x.MaFile == mafile).First();
+            if(file == null)
+            {
+                return BadRequest("Can not find by id");
+            }
+            string _fileToBeDeleted = Path.Combine(Directory.GetCurrentDirectory(), @"Template", file.TenFile);
             if ((System.IO.File.Exists(_fileToBeDeleted)))
             {
                 System.IO.File.Delete(_fileToBeDeleted);
             }
-            return true;
+            _context.Files.Remove(file);
+            _context.SaveChanges();
+            return Ok();
         }
         [HttpGet("downloadFile")]
         public FileResult DownloadFile([FromQuery] string fileName)
