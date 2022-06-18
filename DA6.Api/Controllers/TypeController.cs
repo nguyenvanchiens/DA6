@@ -149,6 +149,47 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
+        [HttpGet("GetAllThanhPhanVai2")]
+        public IActionResult GetAllThanhPhanVai1()
+        {
+            try
+            {
+                var result = _context.ThanhPhanVai2s.ToList();
+                return Ok(result);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+        [HttpGet("GetAllThanhPhanVai3")]
+        public IActionResult GetAllThanhPhanVai3()
+        {
+            try
+            {
+                var result = _context.ThanhPhanVai3s.ToList();
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        [HttpGet("KieuThepTay")]
+        public IActionResult KieuThepTay()
+        {
+            try
+            {
+                var result = _context.KieuThepTays.ToList();
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
