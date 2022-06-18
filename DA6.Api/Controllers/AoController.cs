@@ -188,62 +188,7 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        //[HttpGet("Export")]
-        //public IActionResult Export()
-        //{
-
-        //    ////Format Ctrl+A -> Home -> Format -> Column(with, height)
-
-        //    var stream = new MemoryStream();
-        //    var listAo = _context.Aos.ToList();
-        //    var filePath = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\DA6.Api\Template\Danh_sach_ao.xlsx"));
-        //    FileInfo existingFile = new FileInfo(filePath);
-        //    //ExcelPackage.LicenseContext = LicenseContext.Commercial;
-        //    // If you use EPPlus in a noncommercial context
-        //    // according to the Polyform Noncommercial license:
-        //    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-        //    using (ExcelPackage package = new ExcelPackage(existingFile))
-        //    {
-        //        //get the first worksheet in the workbook
-        //        ExcelWorksheet sheet = package.Workbook.Worksheets[0];
-        //        // đổ dữ liệu vào sheet
-
-        //        int rowId = 4;
-        //        int stt = 1;
-        //        foreach (var ao in listAo)
-        //        {
-        //            sheet.Cells[rowId, 1].AutoFitColumns(10, 10);
-        //            for (int i = 1; i <= 9; i++)
-        //            {
-        //                // Thêm border cho cột
-        //                sheet.Cells[rowId, i].Style.Border.Top.Style = ExcelBorderStyle.Thin;
-        //                sheet.Cells[rowId, i].Style.Border.Left.Style = ExcelBorderStyle.Thin;
-        //                sheet.Cells[rowId, i].Style.Border.Right.Style = ExcelBorderStyle.Thin;
-        //                sheet.Cells[rowId, i].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-        //                // Thêm width vs height cho cột
-        //                sheet.Cells[rowId, i + 1].AutoFitColumns(20, 30);
-        //                sheet.Cells[rowId, i + 1].Merge = true;
-        //            }
-
-        //            sheet.Cells[rowId, 1].Value = stt;
-        //            sheet.Cells[rowId, 2].Value = ao.EmployeeCode;
-        //            sheet.Cells[rowId, 3].Value = ao.EmployeeName;
-        //            sheet.Cells[rowId, 4].Value = ao.GenderName;
-        //            sheet.Cells[rowId, 5].Value = ao.DateOfBirth;
-        //            sheet.Cells[rowId, 6].Value = ao.EmployeePosition;
-        //            sheet.Cells[rowId, 7].Value = ao.DepartmentName;
-        //            sheet.Cells[rowId, 8].Value = ao.BankAccountNumber;
-        //            sheet.Cells[rowId, 9].Value = ao.BankName;
-        //            stt++;
-        //            rowId++;
-        //        }
-        //        stream = new MemoryStream(package.GetAsByteArray());
-        //    }
-        //    stream.Position = 0;
-        //    var fileName = $"DanhSachAo_{DateTime.Now.ToString("dd-MM-yyyy")}.xlsx";
-        //    return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        //        fileName);
-        //}
+       
         [HttpPost("create-option-ao")]
         public IActionResult CreateOptionAo([FromBody] OptionAo optionAo)
         {

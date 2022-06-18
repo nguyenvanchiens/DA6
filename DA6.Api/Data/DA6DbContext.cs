@@ -50,6 +50,9 @@ namespace DA6.Core.Data
         public DbSet<SanPham> SanPhams { get; set; }
         public DbSet<SanPhamLoaiDauRa> SanPhamLoaiDauRas { get; set; }
         public DbSet<LoaiDauRaDauRa> LoaiDauRaDauRas { get; set; }
+        public DbSet<KieuThepTay> KieuThepTays { get; set; }
+        public DbSet<ThanhPhanVai2> ThanhPhanVai2s { get; set; }
+        public DbSet<ThanhPhanVai3> ThanhPhanVai3s { get; set; }
         
        
     }
