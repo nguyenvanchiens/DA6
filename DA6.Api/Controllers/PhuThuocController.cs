@@ -28,15 +28,22 @@ namespace DA6.Api.Controllers
         }
 
         [HttpPost("create-phu-thuoc")]
-        public IActionResult Create([FromBody] PhuThuoc model)
+        public IActionResult Create([FromBody] List<PhuThuoc> model)
         {
             try
             {
-                if (model == null)
+                var entities = _context.PhuThuocs.Where(x => x.MaDauRa == model[0].MaDauRa && x.MaLoaiDauRa == model[0].MaLoaiDauRa && x.MaSanPham == model[0].MaSanPham).ToList();
+                if (entities.Count > 0)
                 {
-                    return BadRequest(model);
+                    foreach(var item in entities)
+                    {
+                        _context.PhuThuocs.Remove(item);
+                    }
                 }
-                _context.PhuThuocs.Add(model);
+                foreach(var item in model)
+                {
+                    _context.PhuThuocs.Add(item);
+                }
                 var result = _context.SaveChanges();
                 return Ok(result);
 
@@ -72,18 +79,17 @@ namespace DA6.Api.Controllers
             }
         }
         [HttpDelete("delete-phu-thuoc")]
-        public IActionResult Delete([FromQuery] int Id)
+        public IActionResult Delete([FromQuery] int dauraId, int loaidauraId, int sanphamId)
         {
             try
             {
-                var entity = _context.PhuThuocs.Where(x => x.Id == Id).FirstOrDefault();
-                if (entity == null)
+                var entities = _context.PhuThuocs.Where(x => x.MaDauRa == dauraId && x.MaLoaiDauRa == loaidauraId && x.MaSanPham == sanphamId).ToList();
+                foreach(var item in entities)
                 {
-                    return BadRequest("Can not find by id");
+                    _context.PhuThuocs.Remove(item);
                 }
-                _context.PhuThuocs.Remove(entity);
-                var res = _context.SaveChanges();
-                return Ok(res);
+                _context.SaveChanges();
+                return Ok();
             }
             catch (Exception)
             {
@@ -105,7 +111,7 @@ namespace DA6.Api.Controllers
                              {
                                  Id = x.p.MaOptionDaura,
                                  TenOptionDauRa = x.op.Name
-                             });
+                             }).OrderBy(s=>s.Id);
                 return Ok(result);
             }
             catch (Exception)
