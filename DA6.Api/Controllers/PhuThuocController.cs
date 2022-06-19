@@ -110,7 +110,9 @@ namespace DA6.Api.Controllers
                              select new {p,op}).Select(x=>new PhuThuocResponModel()
                              {
                                  Id = x.p.MaOptionDaura,
-                                 TenOptionDauRa = x.op.Name
+                                 TenOptionDauRa = x.op.Name,
+                                 Type = x.op.Type,
+
                              }).OrderBy(s=>s.Id);
                 return Ok(result);
             }

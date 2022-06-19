@@ -1,4 +1,5 @@
-﻿using DA6.Core.Data;
+﻿using DA6.Api.ViewModel.Response;
+using DA6.Core.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +15,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.KieuTays.ToList();
+                var result = _context.KieuTays.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuTay.ToString(),
+                    Label = s.TenKieu,
+                    GroupLabel = "Tên kiểu tay",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -28,7 +34,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.KieuCuaTays.ToList();
+                var result = _context.KieuCuaTays.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuCuaTay.ToString(),
+                    Label = s.TenKieuCuaTay,
+                    GroupLabel = "Tên kiểu cửa tay",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -42,7 +53,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.KieuGaus.ToList();
+                var result = _context.KieuGaus.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuGau.ToString(),
+                    Label = s.TenKieuGau,
+                    GroupLabel = "Tên kiểu gấu",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -56,7 +72,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.KieuCos.ToList();
+                var result = _context.KieuCos.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuCo.ToString(),
+                    Label = s.TenKieuCo,
+                    GroupLabel = "Tên kiểu cổ",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -70,7 +91,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.KieuTuis.ToList();
+                var result = _context.KieuTuis.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuTui.ToString(),
+                    Label = s.TenKieuTui,
+                    GroupLabel = "Tên kiểu túi",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -84,7 +110,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.KieuNeps.ToList();
+                var result = _context.KieuNeps.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuNep.ToString(),
+                    Label = s.TenKieuNep,
+                    GroupLabel = "Tên kiểu nẹp",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -93,12 +124,17 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet("")]
+        [HttpGet("GetAllKieuthantruoc")]
         public IActionResult GetAllKieuThanTruoc()
         {
             try
             {
-                var result = _context.KieuThanTruocs.ToList();
+                var result = _context.KieuThanTruocs.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuThanTruoc.ToString(),
+                    Label = s.TenKieuThanTruoc,
+                    GroupLabel = "Tên kiểu thân trước",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -112,7 +148,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.KieuXes.ToList();
+                var result = _context.KieuXes.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuXe.ToString(),
+                    Label = s.TenKieuXe,
+                    GroupLabel = "Tên kiểu xẻ",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -126,7 +167,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.KieuThanSaus.ToList();
+                var result = _context.KieuThanSaus.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuThanSau.ToString(),
+                    Label = s.TenKieuThanSau,
+                    GroupLabel = "Tên kiểu thân sau",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -135,12 +181,17 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet("GetAllThanhPhanVai")]
+        [HttpGet("GetAllThanhPhanVai1")]
         public IActionResult GetAllThanhPhanVai()
         {
             try
             {
-                var result = _context.ThanhPhanVais.ToList();
+                var result = _context.ThanhPhanVais.Select(s=> new ResponseSelect{
+                    Value = s.MaThanhPhanVai.ToString(),
+                    Label = s.TenThanhPhanVai,
+                    GroupLabel = "Tên thành phần vải",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -154,7 +205,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.ThanhPhanVai2s.ToList();
+                var result = _context.ThanhPhanVai2s.Select(s=> new ResponseSelect{
+                    Value = s.MaThanhPhanVai2.ToString(),
+                    Label = s.TenThanhPhanVai2,
+                    GroupLabel = "Tên thành phần vải",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -168,7 +224,12 @@ namespace DA6.Api.Controllers
         {
             try
             {
-                var result = _context.ThanhPhanVai3s.ToList();
+                var result = _context.ThanhPhanVai3s.Select(s=> new ResponseSelect{
+                    Value = s.MaThanhPhanVai3.ToString(),
+                    Label = s.TenThanhPhanVai3,
+                    GroupLabel = "Tên thành phần vải",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)
@@ -177,12 +238,36 @@ namespace DA6.Api.Controllers
                 throw;
             }
         }
-        [HttpGet("KieuThepTay")]
+        [HttpGet("GetAllKieuThepTay")]
         public IActionResult KieuThepTay()
         {
             try
             {
-                var result = _context.KieuThepTays.ToList();
+                var result = _context.KieuThepTays.Select(s=> new ResponseSelect{
+                    Value = s.MaKieuThepTay.ToString(),
+                    Label = s.TenKieuThepTay,
+                    GroupLabel = "Tên kiểu thếp tay",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        [HttpGet("GetAllChungloai")]
+        public IActionResult GetAllChungloai()
+        {
+            try
+            {
+                var result = _context.ChungLoais.Where(s=>s.Level==1).Select(s=> new ResponseSelect{
+                    Value = s.MaCL.ToString(),
+                    Label = s.Ten,
+                    GroupLabel = "Tên thành phần vải",
+                    CreatedDate = s.CreatedDate,
+                }).ToList();
                 return Ok(result);
             }
             catch (Exception)

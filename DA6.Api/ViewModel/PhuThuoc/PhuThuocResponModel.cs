@@ -4,5 +4,6 @@
     {
         public int Id { get; set; }
         public string TenOptionDauRa { get; set; }
+        public int Type { get; set; }
     }
 }
