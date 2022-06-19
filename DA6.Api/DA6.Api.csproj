@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="ViewModel\Option\" />
+    <Folder Include="Template\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,5 +45,6 @@
   <ItemGroup>
     <None Remove="ViewModel\Option\" />
     <None Remove="Template\TCKT-C_PS1.doc" />
+    <None Remove="Template\" />
   </ItemGroup>
 </Project>

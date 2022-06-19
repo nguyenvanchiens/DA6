@@ -1,9 +1,7 @@
 ﻿using DA6.Api.Entities;
 using DA6.Api.ViewModel.PhuThuoc;
 using DA6.Core.Data;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
 namespace DA6.Api.Controllers
 {
     public class PhuThuocController : BaseController
