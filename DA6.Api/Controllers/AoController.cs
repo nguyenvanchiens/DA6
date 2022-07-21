@@ -20,7 +20,8 @@ namespace DA6.Api.Controllers
         public IActionResult GetAll()
         {
 
-            
+            var a = "7";
+            return Ok();
         }
         [HttpGet("get-by-id")]
         public IActionResult Get([FromQuery]string id)
