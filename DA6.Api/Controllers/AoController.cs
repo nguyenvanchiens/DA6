@@ -19,6 +19,7 @@ namespace DA6.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
+
             try
             {
                 var reuslt = _context.Aos.ToList();
