@@ -19,8 +19,18 @@ namespace DA6.Api.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
+            var a = "5";
+            try
+            {
+                var reuslt = _context.Aos.ToList();
+                return Ok(reuslt);
+            }
+            catch (Exception)
+            {
 
-            
+                throw;
+            }
+
         }
         [HttpGet("get-by-id")]
         public IActionResult Get([FromQuery]string id)
